@@ -1,10 +1,10 @@
 from django.conf.urls import url
-from .views import IndexView, AboutView, IndexStatic, IndexSingle, ShortcodeWidgets, Services, ServicesSingle, \
+from .views import  AboutView, IndexStatic, IndexSingle, ShortcodeWidgets, Services, ServicesSingle, \
     GalleryRegular, Timetable, ExchangeView, BlogRightView, ShopRightView
 
 
 urlpatterns = [
-    url(r'^index/', IndexView.as_view(), name='index'),
+    # url(r'^index/', IndexView.as_view(), name='index'),
     url(r'^about/', AboutView.as_view(template_name='about.html'), name='about'),
     url(r'^index-static/', IndexStatic.as_view(), name='index_static'),
     url(r'^index-single/', IndexSingle.as_view(), name='index_single'),
