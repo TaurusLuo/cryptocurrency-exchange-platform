@@ -13,7 +13,7 @@ class AboutView(TemplateView):
 
 
 class IndexStatic(TemplateView):
-    template_name = 'index-staticfiles.html'
+    template_name = 'index-static.html'
 
 
 class IndexSingle(TemplateView):
