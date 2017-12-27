@@ -1,3 +1,10 @@
-.idea/
+*.pyc
+local.py
+./media/.
+.pycache.
+*.db
+.sqlite.*
+.idea/*
+.DS_Store
+idea_/
 db.sqlite3
-pyc
