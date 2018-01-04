@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+			<section class="page_breadcrumbs cs gradient background_cover color_overlay section_padding_top_65 section_padding_bottom_65">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12 text-center">
+							<h2>Welcome </h2>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="ls columns_padding_25 section_padding_top_75 section_padding_bottom_130">
+				<div class="container">
+					<div class="row">
+							<h3 class="section_header small">Name: {{request.user.first_name}} {{request.user.last_name}}</h3>
+							<h3 class="section_header small">Email: {{request.user.email}}</h3>
+							<a href="{% url 'logout' %}"> Logout </a>
+							
+					</div>
+					<!--.row -->
+				</div>
+				<!--.container -->
+			</section>
+{% endblock %}

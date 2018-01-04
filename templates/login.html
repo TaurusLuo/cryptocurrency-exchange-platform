@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+			<section class="page_breadcrumbs cs gradient background_cover color_overlay section_padding_top_65 section_padding_bottom_65">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12 text-center">
+							<h2>Login</h2>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="ls columns_padding_25 section_padding_top_75 section_padding_bottom_130">
+				<div class="container">
+					<div class="row ">
+                      
+                      <div class="col-sm-6 col-sm-offset-3">
+                        
+							<form class="contact-form row columns_padding_10" method="post" action="./">
+								{% csrf_token %}
+								<div class="">
+									<div class="form-group "> <label for="phone">Username</label> <input type="text" size="30" value="" name="username" id="id_username" class="form-control" placeholder="Username">
+                                    <span>
+									</div>
+								</div>
+								<div class="">
+									<div class="form-group "> <label for="phone">Password</label>									<input type="password" name="password" required="" id="id_password" class="form-control" placeholder="Password"> </div>
+								</div>
+								<div align="center" class="">
+									<div class="contact-form-submit topmargin_20"> <button type="submit" name="contact_submit" class="theme_button color1 min_width_button">Login</button> </div>
+								</div>
+							</form>
+                        <a href="{% url 'password_reset'%}">Forgot password?</a>
+                      </div>
+					</div>
+					<!--.row -->
+				</div>
+				{{form.errors}}
+				<!--.container -->
+			</section>
+
+{% endblock %}

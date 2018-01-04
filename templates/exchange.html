@@ -1,62 +1,96 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block section %}
-			<section class="page_breadcrumbs cs gradient background_cover color_overlay section_padding_top_65 section_padding_bottom_65">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-12 text-center">
-							<h2>Exchange</h2>
-							<ol class="breadcrumb big-spacing darklinks">
-								<li> <a href="./">
-							Home
-						</a> </li>
-								<li> <a href="#">Pages</a> </li>
-								<li class="active">Exchange</li>
-							</ol>
-						</div>
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section class="page_breadcrumbs cs gradient background_cover color_overlay section_padding_top_65 section_padding_bottom_65">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-6 col-sm-5 col-xs-offset-3 col-sm-offset-0">
+				<img src="{% static 'images/faces/01.jpg' %}" class="img-responsive imgcircle300 m-align-center">
+			</div>
+			<div class="col-xs-12 col-sm-7">
+				<div class="col-xs-12">
+					<div class="col-sm-5 rect-input">
+						<input type="text" name="" id="" value="" class="col-xs-6" placeholder="Quantity">
+						<select id="" value="" class="col-xs-6 rect-select">
+							<option>qw</option>
+							<option>qw</option>
+							<option>qw</option>
+							<option>qw</option>
+							<option>qw</option>
+						</select>
 					</div>
-				</div>
-			</section>
-			<section class="ls section_padding_top_150 section_padding_bottom_130 columns_padding_25">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-6">
-							<h3>Cryptocurrency Calculator:</h3>
-							<p>Turn Bitcoin Into Dollars and Spend Anywhere! Millions of people have made a fortune with bitcoins! Bitcoin is a type of digital currency in which encryption techniques are used to regulate the generation of units of currency and verify the transfer
-								of funds, operating independently of a central bank.</p>
-							<div class="topmargin_60">
-								<script type="text/javascript" src="https://www.cryptonator.com/ui/js/widget/calc_widget.js"></script>
-							</div>
-							<p class="topmargin_30"> <a href="#0" class="theme_button color1 min_width_button">buy now!</a> </p>
-						</div>
-						<div class="col-sm-6">
-							<h3>Cryptocurrency Price</h3>
-							<script type="text/javascript">
-								crypt_multi_num_cur = "10";
-								crypt_base_cur_0 = "Bitcoin (BTC)";
-								crypt_target_cur_0 = "US Dollar (USD)";
-								crypt_base_cur_1 = "Litecoin (LTC)";
-								crypt_target_cur_1 = "US Dollar (USD)";
-								crypt_base_cur_2 = "Ethereum (ETH)";
-								crypt_target_cur_2 = "US Dollar (USD)";
-								crypt_base_cur_3 = "Monero (XMR)";
-								crypt_target_cur_3 = "US Dollar (USD)";
-								crypt_base_cur_4 = "Ripple (XRP)";
-								crypt_target_cur_4 = "US Dollar (USD)";
-								crypt_base_cur_5 = "Dogecoin (DOGE)";
-								crypt_target_cur_5 = "US Dollar (USD)";
-								crypt_base_cur_6 = "Dash (DASH)";
-								crypt_target_cur_6 = "US Dollar (USD)";
-								crypt_base_cur_7 = "MaidSafeCoin (MAID)";
-								crypt_target_cur_7 = "US Dollar (USD)";
-								crypt_base_cur_8 = "Lisk (LSK)";
-								crypt_target_cur_8 = "US Dollar (USD)";
-								crypt_base_cur_9 = "Storjcoin X (SJCX)";
-								crypt_target_cur_9 = "US Dollar (USD)";
-							</script>
-							<script type="text/javascript" src="https://www.cryptonator.com/ui/js/widget/multi_widget.js"></script>
-						</div>
+					<div class="col-xs-12 col-sm-2 text-center">
+						<i class="fa fa-retweet retweet" aria-hidden="true"></i>
 					</div>
+					<div class="col-sm-5 rect-input">
+						<input type="text" name="" id="" value="" class="col-xs-6" placeholder="Quantity">
+						<select id="" value="" class="col-xs-6 rect-select">
+							<option>qw</option>
+							<option>qw</option>
+							<option>qw</option>
+							<option>qw</option>
+							<option>qw</option>
+						</select>
+					</div>
+
 				</div>
-			</section>
+				<div class="col-xs-12">
+					<div class="col-xs-6 exchange-rate-font">
+						<span>BTC</span><span>=</span><span>$0.005</span>
+					</div>
+					<div class="col-xs-6 exchange-rate-font">
+						<span>AUD</span><span>=</span><span>$0.005</span>
+					</div>
+
+				</div>
+				<div class="col-xs-12">
+						<select id="" value="" class="col-xs-6 rect-select">
+								<option>qw</option>
+								<option>qw</option>
+								<option>qw</option>
+								<option>qw</option>
+								<option>qw</option>
+							</select>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</section>
+<section class="ls section_padding_top_150 section_padding_bottom_130 columns_padding_25">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<h3>Cryptocurrency Calculator:</h3>
+				<p>Turn Bitcoin Into Dollars and Spend Anywhere! Millions of people have made a fortune with bitcoins! Bitcoin is a type
+					of digital currency in which encryption techniques are used to regulate the generation of units of currency and verify
+					the transfer of funds, operating independently of a central bank.</p>
+				<div class="topmargin_60">
+					<script type="text/javascript" src="https://www.cryptonator.com/ui/js/widget/calc_widget.js"></script>
+				</div>
+				<p class="topmargin_30">
+					<a href="#0" class="theme_button color1 min_width_button">buy now!</a>
+				</p>
+			</div>
+			<div class="col-sm-6">
+				<h3>Cryptocurrency Price</h3>
+				<script type="text/javascript">
+					crypt_multi_num_cur = "6";
+					crypt_base_cur_0 = "Bitcoin (BTC)";
+					crypt_target_cur_0 = "US Dollar (USD)";
+					crypt_base_cur_1 = "Litecoin (LTC)";
+					crypt_target_cur_1 = "US Dollar (USD)";
+					crypt_base_cur_2 = "Ethereum (ETH)";
+					crypt_target_cur_2 = "US Dollar (USD)";
+					crypt_base_cur_3 = "Monero (XMR)";
+					crypt_target_cur_3 = "US Dollar (USD)";
+					crypt_base_cur_4 = "Bitcoin Cash  (BCH)";
+					crypt_target_cur_4 = "US Dollar (USD)";
+					crypt_base_cur_5 = "Bitcoin Gold (BTG)";
+					crypt_target_cur_5 = "US Dollar (USD)";
+				</script>
+				<script type="text/javascript" src="https://www.cryptonator.com/ui/js/widget/multi_widget.js"></script>
+			</div>
+		</div>
+	</div>
+</section>
 {% endblock %}

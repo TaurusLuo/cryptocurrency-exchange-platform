@@ -16,12 +16,17 @@ Including another URLconf
 from django.conf.urls import url, include, static
 from django.contrib import admin
 from django.conf import settings
+from django.views.generic.base import TemplateView
+from django.contrib.auth.decorators import login_required
+
 from apps.bitcoin_crypto.views import IndexView
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^crypto/', include('apps.bitcoin_crypto.urls')),
+    url(r'^auth/', include('apps.authentication.urls')),
+    url(r'^welcome/', login_required(TemplateView.as_view(template_name='welcome.html')), name='welcome'),
     url(r'^$', IndexView.as_view(), name='index'),
 
 ]

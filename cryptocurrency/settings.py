@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.bitcoin_crypto',
+    'apps.authentication',
 ]
 
 MIDDLEWARE = [
@@ -100,6 +101,24 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'authentication.User'
+
+AUTHENTICATION_BACKENDS = (
+    ('django.contrib.auth.backends.ModelBackend'),
+)
+
+LOGIN_REDIRECT_URL = '/welcome/'
+
+# Application definition
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtpout.secureserver.net'
+EMAIL_PORT = 80
+
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+#EMAIL_HOST_PASSWORD = 'developer@realtordaddy'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'dev@virtualwallets.com.au'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/

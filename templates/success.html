@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+			<section class="page_breadcrumbs cs gradient background_cover color_overlay section_padding_top_65 section_padding_bottom_65">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12 text-center">
+							{% if error %}
+							<h2>Error</h2>
+							{% else %}
+							<h2>Success</h2>
+                            {% endif %}
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="ls columns_padding_25 section_padding_top_75 section_padding_bottom_130">
+				<div class="container">
+					<div class="row">
+						{% if error %}
+                            <h3 class="section_header small">You followed an invalid link. Please check.</h3>
+						{% else %}
+							<h3 class="section_header small">Successfully Verified. Now You can login with your credentials.</h3>
+						{% endif %}
+					</div>
+					<!--.row -->
+				</div>
+				<!--.container -->
+			</section>
+{% endblock %}

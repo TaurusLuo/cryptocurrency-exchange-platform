@@ -1,22 +1,28 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <section class="intro_section page_mainslider ds">
 	<div class="flexslider vertical-nav" data-dots="true" data-nav="false">
 		<ul class="slides">
-			<li> <img src="{% static 'images/slide01.jpg' %}" alt="">
+			<li>
+				<img src="{% static 'images/slide012.jpg' %}" alt="">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="slide_description_wrapper">
 								<div class="slide_description">
 									<div class="intro-layer" data-animation="fadeInUp">
-										<h2 class="thin"> <span class="grey">Rent,</span><br> <span class="highlight semibold">Invest</span><br> <span class="weight-black">&amp; Trade</span> </h2>
+										<h2 class="thin">
+											<span class="grey">Rent,</span>
+											<br>
+											<span class="highlight semibold">Invest</span>
+											<br>
+											<span class="weight-black">&amp; Trade</span>
+										</h2>
 									</div>
-									<div class="intro-layer" data-animation="fadeInUp"> <a href="contact.html" class="theme_button color2 min_width_button">
-								Join us
-							</a> </div>
+									<div class="intro-layer" data-animation="fadeInUp">
+										<a href="{% url 'signup' %}" class="theme_button color2 min_width_button">
+											Join us
+										</a>
+									</div>
 								</div>
 								<!-- eof .slide_description -->
 							</div>
@@ -28,18 +34,26 @@
 				</div>
 				<!-- eof .container -->
 			</li>
-			<li> <img src="{% static 'images/slide02.jpg' %}" alt="">
+			<li>
+				<img src="{% static 'images/slide02.jpg' %}" alt="">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12 text-center">
 							<div class="slide_description_wrapper">
 								<div class="slide_description">
 									<div class="intro-layer" data-animation="fadeInUp">
-										<h2 class="thin"> Easy Way<br> <span class="semibold">to Trade</span><br> <span class="weight-black">Bitcoin</span> </h2>
+										<h2 class="thin"> Easy Way
+											<br>
+											<span class="semibold">to Trade</span>
+											<br>
+											<span class="weight-black">Bitcoin</span>
+										</h2>
 									</div>
-									<div class="intro-layer" data-animation="fadeInUp"> <a href="contact.html" class="theme_button color1 min_width_button">
-								Our services
-							</a> </div>
+									<div class="intro-layer" data-animation="fadeInUp">
+										<a href="contact.html" class="theme_button color1 min_width_button">
+											Our services
+										</a>
+									</div>
 								</div>
 								<!-- eof .slide_description -->
 							</div>
@@ -51,16 +65,24 @@
 				</div>
 				<!-- eof .container -->
 			</li>
-			<li> <img src="{% static 'images/slide03.jpg' %}" alt="">
+			<li>
+				<img src="{% static 'images/slide03.jpg' %}" alt="">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12 text-right">
 							<div class="slide_description_wrapper">
 								<div class="slide_description">
 									<div class="intro-layer" data-animation="fadeInUp">
-										<h2 class="thin"> Choose<br> <span class="semibold">Progress</span><br> <span class="weight-black">&amp; Success</span> </h2>
+										<h2 class="thin"> Choose
+											<br>
+											<span class="semibold">Progress</span>
+											<br>
+											<span class="weight-black">&amp; Success</span>
+										</h2>
 									</div>
-									<div class="intro-layer" data-animation="fadeInUp"> <a href="contact.html" class="theme_button color3 min_width_button">About us</a> </div>
+									<div class="intro-layer" data-animation="fadeInUp">
+										<a href="contact.html" class="theme_button color3 min_width_button">About us</a>
+									</div>
 								</div>
 								<!-- eof .slide_description -->
 							</div>
@@ -76,48 +98,77 @@
 	</div>
 	<!-- eof flexslider -->
 </section>
-<section id="about" class="ls ms background_cover section_about section_padding_top_150 section_padding_bottom_150 columns_padding_25">
+
+
+
+<section id="steps" class="ls ms section_padding_top_150 section_padding_bottom_130 columns_margin_bottom_20">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-8 col-md-6 col-lg-5 col-sm-offset-4 col-md-offset-6 col-lg-offset-7">
-				<p class="small-text highlight">What is bitcoin</p>
-				<h2 class="section_header">A New Kind of Money</h2>
-				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore edolore magna aliquyam erat, sed diam voluptua. At vero eos accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, takimata
-					sanctus est ipsum dolor.</p>
-				<p class="topmargin_30"> <a href="contact.html" class="theme_button color1 min_width_button">Join us</a> </p>
+			<div class="col-sm-4" data-aos="fade-down-left" >
+				<div class="teaser text-center step_teaser">
+					<div class="teaser_icon hover_scale_icon size_small dashed_border big_wrapper round">
+						<i class="rt-icon2-user highlight"></i>
+					</div>
+					<h4>
+						<a href="#0">Select CryptoCurrency</a>
+					</h4>
+					<p>Select the type of cryptocurrency you wish to exhcange and the desired cryptocurrency you wish to get.</p>
+					<div class="canvas-arrow-wrap">
+						<canvas class="canvas-arrow highlight" width="210" height="23">
+							Next step
+						</canvas>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4" data-aos="fade-down-left" data-aos-delay="3000" data-aos-easing="linear" data-aos-duration="1500">
+				<div class="teaser text-center step_teaser">
+					<div class="teaser_icon hover_scale_icon size_small dashed_border big_wrapper round">
+						<i class="rt-icon2-banknote highlight3"></i>
+					</div>
+					<h4 class="hover-color3">
+						<a href="#0">Verify your VirtualWallet</a>
+					</h4>
+					<p>Provide your VirtualWallet's source address(refund address) and the Destination address . Click on "I agree to Terms",
+						then click the Start Transaction Button.</p>
+					<div class="canvas-arrow-wrap up-side-down">
+						<canvas class="canvas-arrow highlight3" width="210" height="23">
+							Next step
+						</canvas>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4" data-aos="fade-down-left" data-aos-delay="5000" data-aos-easing="linear" data-aos-duration="1500">
+				<div class="teaser text-center step_teaser">
+					<div class="teaser_icon hover_scale_icon size_small dashed_border big_wrapper round">
+						<i class="rt-icon2-paperplane highlight2"></i>
+					</div>
+					<h4 class="hover-color2">
+						<a href="#0">Complete Transaction</a>
+					</h4>
+					<p>VirtualWallet will generate a deposit address for you (this is the address you will send your cryptocurrency). After
+						receiving your Cryptocurrency, we will deposit the requested cryptocurrency into your destination VirtualWallet</p>
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
-<section id="steps" class="ls ms section_padding_top_150 section_padding_bottom_130 columns_margin_bottom_20">
+
+
+<section id="about" class="ls ms section_about section_padding_top_150 section_padding_bottom_150 columns_padding_25">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-4">
-				<div class="teaser text-center step_teaser">
-					<div class="teaser_icon hover_scale_icon size_small dashed_border big_wrapper round"> <i class="rt-icon2-user highlight"></i> </div>
-					<h4><a href="#0">Verify Your ID</a></h4>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr diam nonumy eirmod tempor invidunt ut labore edolore.</p>
-					<div class="canvas-arrow-wrap"> <canvas class="canvas-arrow highlight" width="210" height="23">
-				Next step
-			</canvas> </div>
-				</div>
+			<div class="col-sm-4 col-md-6 col-lg-5 text-center" data-aos="fade-down-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+				<img src="{% static 'images/coins/bitcoin.png' %}" class="img-responsive w-75 fl-right" alt="bitcoin">
 			</div>
-			<div class="col-sm-4">
-				<div class="teaser text-center step_teaser">
-					<div class="teaser_icon hover_scale_icon size_small dashed_border big_wrapper round"> <i class="rt-icon2-banknote highlight3"></i> </div>
-					<h4 class="hover-color3"><a href="#0">Make Payment</a></h4>
-					<p>Dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore.</p>
-					<div class="canvas-arrow-wrap up-side-down"> <canvas class="canvas-arrow highlight3" width="210" height="23">
-				Next step
-			</canvas> </div>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="teaser text-center step_teaser">
-					<div class="teaser_icon hover_scale_icon size_small dashed_border big_wrapper round"> <i class="rt-icon2-paperplane highlight2"></i> </div>
-					<h4 class="hover-color2"><a href="#0">Buy or Sell Orders</a></h4>
-					<p>At vero eos accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, takimata sanctus est ipsum dolor.</p>
-				</div>
+			<div class="col-sm-8 col-md-6 col-lg-5  col-lg-offset-2">
+				<p class="small-text highlight">What is bitcoin</p>
+				<h2 class="section_header">A New Kind of Money</h2>
+				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore edolore magna
+					aliquyam erat, sed diam voluptua. At vero eos accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, takimata
+					sanctus est ipsum dolor.</p>
+				<p class="topmargin_30">
+					<a href="contact.html" class="theme_button color1 min_width_button">Join us</a>
+				</p>
 			</div>
 		</div>
 	</div>
@@ -129,28 +180,43 @@
 				<div class="owl-carousel" data-responsive-lg="1" data-responsive-md="1" data-responsive-sm="1" data-nav="false" data-dots="true">
 					<blockquote class="text-center">
 						<div class="item-meta topmargin_0">
-							<div class="avatar"> <img src="{% static 'images/faces/01.jpg' %}" alt=""> </div>
-							<h2 class="section_header margin_0"> <span class="small-text highlight">Sarah</span> Macdougall </h2>
-							<div class="star-rating" title="Rated 4.0 out of 5"> <span style="width:80%">
-						<strong class="rating">4.0</strong> out of 5
-					</span> </div>
-						</div> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </blockquote>
+							<div class="avatar">
+								<img src="{% static 'images/faces/01.jpg' %}" alt=""> </div>
+							<h2 class="section_header margin_0">
+								<span class="small-text highlight">Sarah</span> Macdougall </h2>
+							<div class="star-rating" title="Rated 4.0 out of 5">
+								<span style="width:80%">
+									<strong class="rating">4.0</strong> out of 5
+								</span>
+							</div>
+						</div> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+						magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </blockquote>
 					<blockquote class="text-center">
 						<div class="item-meta topmargin_0">
-							<div class="avatar"> <img src="{% static 'images/faces/02.jpg' %}" alt=""> </div>
-							<h2 class="section_header margin_0"> <span class="small-text highlight">Prudence</span> Fleming </h2>
-							<div class="star-rating" title="Rated 4.0 out of 5"> <span style="width:80%">
-						<strong class="rating">4.0</strong> out of 5
-					</span> </div>
-						</div> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </blockquote>
+							<div class="avatar">
+								<img src="{% static 'images/faces/02.jpg' %}" alt=""> </div>
+							<h2 class="section_header margin_0">
+								<span class="small-text highlight">Prudence</span> Fleming </h2>
+							<div class="star-rating" title="Rated 4.0 out of 5">
+								<span style="width:80%">
+									<strong class="rating">4.0</strong> out of 5
+								</span>
+							</div>
+						</div> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+						magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </blockquote>
 					<blockquote class="text-center">
 						<div class="item-meta topmargin_0">
-							<div class="avatar"> <img src="{% static 'images/faces/02.jpg' %}" alt=""> </div>
-							<h2 class="section_header margin_0"> <span class="small-text highlight">Prudence</span> Prudence </h2>
-							<div class="star-rating" title="Rated 4.0 out of 5"> <span style="width:80%">
-						<strong class="rating">4.0</strong> out of 5
-					</span> </div>
-						</div> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </blockquote>
+							<div class="avatar">
+								<img src="{% static 'images/faces/02.jpg' %}" alt=""> </div>
+							<h2 class="section_header margin_0">
+								<span class="small-text highlight">Prudence</span> Prudence </h2>
+							<div class="star-rating" title="Rated 4.0 out of 5">
+								<span style="width:80%">
+									<strong class="rating">4.0</strong> out of 5
+								</span>
+							</div>
+						</div> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+						magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </blockquote>
 				</div>
 			</div>
 		</div>
@@ -162,11 +228,14 @@
 			<div class="col-sm-8 col-md-6 col-lg-5">
 				<p class="small-text highlight">Bitcoin</p>
 				<h2 class="section_header">Currency Calculator</h2>
-				<p class="light">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut laboret dolore magna aliquyam erat, sed diam voluptua.</p>
+				<p class="light">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut laboret dolore magna
+					aliquyam erat, sed diam voluptua.</p>
 				<div class="divider_30">
 					<script type="text/javascript" src="https://www.cryptonator.com/ui/js/widget/calc_widget.js"></script>
 				</div>
-				<p> <a href="#0" class="theme_button color1 min_width_button">buy now!</a> </p>
+				<p>
+					<a href="#0" class="theme_button color1 min_width_button">buy now!</a>
+				</p>
 			</div>
 		</div>
 	</div>
@@ -176,15 +245,23 @@
 		<div class="row">
 			<div class="col-md-4 col-sm-6">
 				<div class="teaser max_width_260 text-center">
-					<div class="teaser_icon size_small highlight"> <i class="rt-icon2-lock2"></i> </div>
-					<h4><a href="service-single.html">Safe &amp; Secure</a></h4>
+					<div class="teaser_icon size_small highlight">
+						<i class="rt-icon2-lock2"></i>
+					</div>
+					<h4>
+						<a href="service-single.html">Safe &amp; Secure</a>
+					</h4>
 					<p>Be sure in your account security and your funds safe.</p>
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-6 col-md-offset-4">
 				<div class="teaser max_width_260 text-center">
-					<div class="teaser_icon size_small highlight"> <i class="rt-icon2-bubble"></i> </div>
-					<h4><a href="service-single.html">Experts Support</a></h4>
+					<div class="teaser_icon size_small highlight">
+						<i class="rt-icon2-bubble"></i>
+					</div>
+					<h4>
+						<a href="service-single.html">Experts Support</a>
+					</h4>
 					<p>Support will answer your questions regarding bitcoins.</p>
 				</div>
 			</div>
@@ -192,15 +269,23 @@
 		<div class="row">
 			<div class="col-md-3 col-sm-6">
 				<div class="teaser max_width_260 text-center">
-					<div class="teaser_icon size_small highlight3"> <i class="rt-icon2-phone5"></i> </div>
-					<h4 class="hover-color3"><a href="service-single.html">Mobile Apps</a></h4>
+					<div class="teaser_icon size_small highlight3">
+						<i class="rt-icon2-phone5"></i>
+					</div>
+					<h4 class="hover-color3">
+						<a href="service-single.html">Mobile Apps</a>
+					</h4>
 					<p>Perfectly developed mobile apps will open new opportunities.</p>
 				</div>
 			</div>
 			<div class="col-md-3 col-sm-6 col-md-offset-6">
 				<div class="teaser max_width_260 text-center">
-					<div class="teaser_icon size_small highlight3"> <i class="rt-icon2-stack4"></i> </div>
-					<h4 class="hover-color3"><a href="service-single.html">Instant Exchange</a></h4>
+					<div class="teaser_icon size_small highlight3">
+						<i class="rt-icon2-stack4"></i>
+					</div>
+					<h4 class="hover-color3">
+						<a href="service-single.html">Instant Exchange</a>
+					</h4>
 					<p>Instant Exchange allows you to send bitcoin and pay for it</p>
 				</div>
 			</div>
@@ -208,15 +293,23 @@
 		<div class="row">
 			<div class="col-md-4 col-sm-6">
 				<div class="teaser max_width_260 text-center">
-					<div class="teaser_icon size_small highlight2"> <i class="rt-icon2-wallet2"></i> </div>
-					<h4 class="hover-color2"><a href="service-single.html">Wallet</a></h4>
+					<div class="teaser_icon size_small highlight2">
+						<i class="rt-icon2-wallet2"></i>
+					</div>
+					<h4 class="hover-color2">
+						<a href="service-single.html">Wallet</a>
+					</h4>
 					<p>Perfectly developed mobile apps will open new opportunities.</p>
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-6 col-md-offset-4">
 				<div class="teaser max_width_260 text-center">
-					<div class="teaser_icon size_small highlight2"> <i class="rt-icon2-bulb"></i> </div>
-					<h4 class="hover-color2"><a href="service-single.html">Recuring Buys</a></h4>
+					<div class="teaser_icon size_small highlight2">
+						<i class="rt-icon2-bulb"></i>
+					</div>
+					<h4 class="hover-color2">
+						<a href="service-single.html">Recuring Buys</a>
+					</h4>
 					<p>Recurring transaction feature allows you to schedule future</p>
 				</div>
 			</div>
@@ -231,141 +324,219 @@
 				<h2 class="section_header">News &amp; Events</h2>
 				<div class="owl-carousel text-nav" data-responsive-lg="3" data-nav="true" data-margin="30">
 					<article class="vertical-item content-padding big-padding with_border">
-						<div class="item-media with_icon"> <img src="{% static 'images/events/01.jpg' %}" alt=""> </div>
-						<div class="item-content with_overlapped_button"> <a href="blog-single-right.html#comments" class="theme_button round_button color1">
-					<span class="sr-only">Comments</span>
-					<i class="rt-icon2-pen"></i>
-				</a>
-							<h4 class="entry-title"> <a href="blog-single-right.html">Lorem ipsum dolor sit consetetur</a> </h4>
+						<div class="item-media with_icon">
+							<img src="{% static 'images/events/01.jpg' %}" alt=""> </div>
+						<div class="item-content with_overlapped_button">
+							<a href="blog-single-right.html#comments" class="theme_button round_button color1">
+								<span class="sr-only">Comments</span>
+								<i class="rt-icon2-pen"></i>
+							</a>
+							<h4 class="entry-title">
+								<a href="blog-single-right.html">Lorem ipsum dolor sit consetetur</a>
+							</h4>
 							<p class="content-3lines-ellipsis">Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore dolore magna.</p>
 						</div>
 						<footer class="item-meta small-text darklinks">
-							<div> <span class="bg_text">on</span> <a href="blog-single-right.html">
-						<time datetime="2017-10-03T08:50:40+00:00">
-							22.10.17
-						</time>
-					</a> </div>
-							<div> <span class="bg_text">by</span> <a href="blog-right.html">
-						admin
-					</a> </div>
-							<div> <span class="bg_text">in</span> <a href="blog-right.html">
-						news
-					</a> </div>
+							<div>
+								<span class="bg_text">on</span>
+								<a href="blog-single-right.html">
+									<time datetime="2017-10-03T08:50:40+00:00">
+										22.10.17
+									</time>
+								</a>
+							</div>
+							<div>
+								<span class="bg_text">by</span>
+								<a href="blog-right.html">
+									admin
+								</a>
+							</div>
+							<div>
+								<span class="bg_text">in</span>
+								<a href="blog-right.html">
+									news
+								</a>
+							</div>
 						</footer>
 					</article>
 					<article class="vertical-item content-padding big-padding with_border">
-						<div class="item-media with_icon"> <img src="{% static 'images/events/03.jpg' %}" alt=""> </div>
-						<div class="item-content with_overlapped_button"> <a href="blog-single-right.html#comments" class="theme_button round_button color1">
-					<span class="sr-only">Comments</span>
-					<i class="rt-icon2-pen"></i>
-				</a>
-							<h4 class="entry-title"> <a href="blog-single-right.html">Sadipscing elitr sed diam nonumy eirmod</a> </h4>
+						<div class="item-media with_icon">
+							<img src="{% static 'images/events/03.jpg' %}" alt=""> </div>
+						<div class="item-content with_overlapped_button">
+							<a href="blog-single-right.html#comments" class="theme_button round_button color1">
+								<span class="sr-only">Comments</span>
+								<i class="rt-icon2-pen"></i>
+							</a>
+							<h4 class="entry-title">
+								<a href="blog-single-right.html">Sadipscing elitr sed diam nonumy eirmod</a>
+							</h4>
 							<p class="content-3lines-ellipsis">At vero eos et accusam et justo duo dolores ea rebum clita kasd gubergren, no sea takimata.</p>
 						</div>
 						<footer class="item-meta small-text darklinks">
-							<div> <span class="bg_text">on</span> <a href="blog-single-right.html">
-						<time datetime="2017-10-03T08:50:40+00:00">
-							21.10.17
-						</time>
-					</a> </div>
-							<div> <span class="bg_text">by</span> <a href="blog-right.html">
-						admin
-					</a> </div>
-							<div> <span class="bg_text">in</span> <a href="blog-right.html">
-						news
-					</a> </div>
+							<div>
+								<span class="bg_text">on</span>
+								<a href="blog-single-right.html">
+									<time datetime="2017-10-03T08:50:40+00:00">
+										21.10.17
+									</time>
+								</a>
+							</div>
+							<div>
+								<span class="bg_text">by</span>
+								<a href="blog-right.html">
+									admin
+								</a>
+							</div>
+							<div>
+								<span class="bg_text">in</span>
+								<a href="blog-right.html">
+									news
+								</a>
+							</div>
 						</footer>
 					</article>
 					<article class="vertical-item content-padding big-padding with_border">
-						<div class="item-media with_icon"> <img src="{% static 'images/events/01.jpg' %}" alt=""> </div>
-						<div class="item-content with_overlapped_button"> <a href="blog-single-right.html#comments" class="theme_button round_button color1">
-					<span class="sr-only">Comments</span>
-					<i class="rt-icon2-pen"></i>
-				</a>
-							<h4 class="entry-title"> <a href="blog-single-right.html">Tempor invidunt labore dolore magna</a> </h4>
+						<div class="item-media with_icon">
+							<img src="{% static 'images/events/01.jpg' %}" alt=""> </div>
+						<div class="item-content with_overlapped_button">
+							<a href="blog-single-right.html#comments" class="theme_button round_button color1">
+								<span class="sr-only">Comments</span>
+								<i class="rt-icon2-pen"></i>
+							</a>
+							<h4 class="entry-title">
+								<a href="blog-single-right.html">Tempor invidunt labore dolore magna</a>
+							</h4>
 							<p class="content-3lines-ellipsis">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.</p>
 						</div>
 						<footer class="item-meta small-text darklinks">
-							<div> <span class="bg_text">on</span> <a href="blog-single-right.html">
-						<time datetime="2017-10-03T08:50:40+00:00">
-							19.10.17
-						</time>
-					</a> </div>
-							<div> <span class="bg_text">by</span> <a href="blog-right.html">
-						admin
-					</a> </div>
-							<div> <span class="bg_text">in</span> <a href="blog-right.html">
-						news
-					</a> </div>
+							<div>
+								<span class="bg_text">on</span>
+								<a href="blog-single-right.html">
+									<time datetime="2017-10-03T08:50:40+00:00">
+										19.10.17
+									</time>
+								</a>
+							</div>
+							<div>
+								<span class="bg_text">by</span>
+								<a href="blog-right.html">
+									admin
+								</a>
+							</div>
+							<div>
+								<span class="bg_text">in</span>
+								<a href="blog-right.html">
+									news
+								</a>
+							</div>
 						</footer>
 					</article>
 					<article class="vertical-item content-padding big-padding with_border">
-						<div class="item-media with_icon"> <img src="{% static 'images/events/04.jpg' %}" alt=""> </div>
-						<div class="item-content with_overlapped_button"> <a href="blog-single-right.html#comments" class="theme_button round_button color1">
-					<span class="sr-only">Comments</span>
-					<i class="rt-icon2-pen"></i>
-				</a>
-							<h4 class="entry-title"> <a href="blog-single-right.html">Lorem ipsum dolor sit consetetur</a> </h4>
+						<div class="item-media with_icon">
+							<img src="{% static 'images/events/04.jpg' %}" alt=""> </div>
+						<div class="item-content with_overlapped_button">
+							<a href="blog-single-right.html#comments" class="theme_button round_button color1">
+								<span class="sr-only">Comments</span>
+								<i class="rt-icon2-pen"></i>
+							</a>
+							<h4 class="entry-title">
+								<a href="blog-single-right.html">Lorem ipsum dolor sit consetetur</a>
+							</h4>
 							<p class="content-3lines-ellipsis">Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore dolore magna.</p>
 						</div>
 						<footer class="item-meta small-text darklinks">
-							<div> <span class="bg_text">on</span> <a href="blog-single-right.html">
-						<time datetime="2017-10-03T08:50:40+00:00">
-							19.10.17
-						</time>
-					</a> </div>
-							<div> <span class="bg_text">by</span> <a href="blog-right.html">
-						admin
-					</a> </div>
-							<div> <span class="bg_text">in</span> <a href="blog-right.html">
-						news
-					</a> </div>
+							<div>
+								<span class="bg_text">on</span>
+								<a href="blog-single-right.html">
+									<time datetime="2017-10-03T08:50:40+00:00">
+										19.10.17
+									</time>
+								</a>
+							</div>
+							<div>
+								<span class="bg_text">by</span>
+								<a href="blog-right.html">
+									admin
+								</a>
+							</div>
+							<div>
+								<span class="bg_text">in</span>
+								<a href="blog-right.html">
+									news
+								</a>
+							</div>
 						</footer>
 					</article>
 					<article class="vertical-item content-padding big-padding with_border">
-						<div class="item-media with_icon"> <img src="{% static 'images/events/05.jpg' %}" alt=""> </div>
-						<div class="item-content with_overlapped_button"> <a href="blog-single-right.html#comments" class="theme_button round_button color1">
-					<span class="sr-only">Comments</span>
-					<i class="rt-icon2-pen"></i>
-				</a>
-							<h4 class="entry-title"> <a href="blog-single-right.html">Sadipscing elitr sed diam nonumy eirmod</a> </h4>
+						<div class="item-media with_icon">
+							<img src="{% static 'images/events/05.jpg' %}" alt=""> </div>
+						<div class="item-content with_overlapped_button">
+							<a href="blog-single-right.html#comments" class="theme_button round_button color1">
+								<span class="sr-only">Comments</span>
+								<i class="rt-icon2-pen"></i>
+							</a>
+							<h4 class="entry-title">
+								<a href="blog-single-right.html">Sadipscing elitr sed diam nonumy eirmod</a>
+							</h4>
 							<p class="content-3lines-ellipsis">At vero eos et accusam et justo duo dolores ea rebum clita kasd gubergren, no sea takimata.</p>
 						</div>
 						<footer class="item-meta small-text darklinks">
-							<div> <span class="bg_text">on</span> <a href="blog-single-right.html">
-						<time datetime="2017-10-03T08:50:40+00:00">
-							18.10.17
-						</time>
-					</a> </div>
-							<div> <span class="bg_text">by</span> <a href="blog-right.html">
-						admin
-					</a> </div>
-							<div> <span class="bg_text">in</span> <a href="blog-right.html">
-						news
-					</a> </div>
+							<div>
+								<span class="bg_text">on</span>
+								<a href="blog-single-right.html">
+									<time datetime="2017-10-03T08:50:40+00:00">
+										18.10.17
+									</time>
+								</a>
+							</div>
+							<div>
+								<span class="bg_text">by</span>
+								<a href="blog-right.html">
+									admin
+								</a>
+							</div>
+							<div>
+								<span class="bg_text">in</span>
+								<a href="blog-right.html">
+									news
+								</a>
+							</div>
 						</footer>
 					</article>
 					<article class="vertical-item content-padding big-padding with_border">
-						<div class="item-media with_icon"> <img src="{% static 'images/events/06.jpg' %}" alt=""> </div>
-						<div class="item-content with_overlapped_button"> <a href="blog-single-right.html#comments" class="theme_button round_button color1">
-					<span class="sr-only">Comments</span>
-					<i class="rt-icon2-pen"></i>
-				</a>
-							<h4 class="entry-title"> <a href="blog-single-right.html">Tempor invidunt labore dolore magna</a> </h4>
+						<div class="item-media with_icon">
+							<img src="{% static 'images/events/06.jpg' %}" alt=""> </div>
+						<div class="item-content with_overlapped_button">
+							<a href="blog-single-right.html#comments" class="theme_button round_button color1">
+								<span class="sr-only">Comments</span>
+								<i class="rt-icon2-pen"></i>
+							</a>
+							<h4 class="entry-title">
+								<a href="blog-single-right.html">Tempor invidunt labore dolore magna</a>
+							</h4>
 							<p class="content-3lines-ellipsis">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.</p>
 						</div>
 						<footer class="item-meta small-text darklinks">
-							<div> <span class="bg_text">on</span> <a href="blog-single-right.html">
-						<time datetime="2017-10-03T08:50:40+00:00">
-							17.10.17
-						</time>
-					</a> </div>
-							<div> <span class="bg_text">by</span> <a href="blog-right.html">
-						admin
-					</a> </div>
-							<div> <span class="bg_text">in</span> <a href="blog-right.html">
-						news
-					</a> </div>
+							<div>
+								<span class="bg_text">on</span>
+								<a href="blog-single-right.html">
+									<time datetime="2017-10-03T08:50:40+00:00">
+										17.10.17
+									</time>
+								</a>
+							</div>
+							<div>
+								<span class="bg_text">by</span>
+								<a href="blog-right.html">
+									admin
+								</a>
+							</div>
+							<div>
+								<span class="bg_text">in</span>
+								<a href="blog-right.html">
+									news
+								</a>
+							</div>
 						</footer>
 					</article>
 				</div>
@@ -382,23 +553,40 @@
 				<form class="contact-form topmargin_5l0" method="post" action="./">
 					<div class="row">
 						<div class="col-sm-4">
-							<p class="form-group"> <label for="name">Full Name <span class="required">*</span></label> <i class="rt-icon2-user highlight" aria-hidden="true"></i> <input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control text-center"
-									placeholder="Full Name"> </p>
+							<p class="form-group">
+								<label for="name">Full Name
+									<span class="required">*</span>
+								</label>
+								<i class="rt-icon2-user highlight" aria-hidden="true"></i>
+								<input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control text-center" placeholder="Full Name"> </p>
 						</div>
 						<div class="col-sm-4">
-							<p class="form-group"> <label for="email">Email address<span class="required">*</span></label> <i class="rt-icon2-envelope-o highlight" aria-hidden="true"></i> <input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control text-center"
-									placeholder="Email Address"> </p>
+							<p class="form-group">
+								<label for="email">Email address
+									<span class="required">*</span>
+								</label>
+								<i class="rt-icon2-envelope-o highlight" aria-hidden="true"></i>
+								<input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control text-center" placeholder="Email Address"> </p>
 						</div>
 						<div class="col-sm-4">
-							<p class="form-group"> <label for="subject">Your Subject</label> <i class="rt-icon2-paper-clip highlight" aria-hidden="true"></i> <input type="text" size="30" value="" name="subject" id="subject" class="form-control text-center" placeholder="Your Subject"> </p>
+							<p class="form-group">
+								<label for="subject">Your Subject</label>
+								<i class="rt-icon2-paper-clip highlight" aria-hidden="true"></i>
+								<input type="text" size="30" value="" name="subject" id="subject" class="form-control text-center" placeholder="Your Subject"> </p>
 						</div>
 						<div class="col-sm-12">
-							<div class="form-group"> <label for="message">Your question</label> <i class="rt-icon2-pen highlight" aria-hidden="true"></i> <textarea aria-required="true" rows="5" cols="45" name="message" id="message" class="form-control text-center" placeholder="Your question"></textarea>											</div>
+							<div class="form-group">
+								<label for="message">Your question</label>
+								<i class="rt-icon2-pen highlight" aria-hidden="true"></i>
+								<textarea aria-required="true" rows="5" cols="45" name="message" id="message" class="form-control text-center" placeholder="Your question"></textarea>
+							</div>
 						</div>
 					</div>
 					<div class="row topmargin_10">
 						<div class="col-sm-12">
-							<p class="contact-form-submit text-center"> <button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button color1 min_width_button">Send now</button> </p>
+							<p class="contact-form-submit text-center">
+								<button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button color1 min_width_button">Send now</button>
+							</p>
 						</div>
 					</div>
 				</form>
@@ -410,21 +598,30 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-12 text-center">
-				<div class="owl-carousel partners-carousel" data-responsive-lg="7" data-responsive-md="5" data-responsive-sm="3" data-responsive-xs="2" data-center="true" data-loop="true"> <a href="#">
-			<img src="{% static 'images/partners/01.png' %}" alt="" />
-		</a> <a href="#">
-			<img src="{% static 'images/partners/02.png' %}" alt="" />
-		</a> <a href="#">
-			<img src="{% static 'images/partners/03.png' %}" alt="" />
-		</a> <a href="#">
-			<img src="{% static 'images/partners/04.png' %}" alt="" />
-		</a> <a href="#">
-			<img src="{% static 'images/partners/05.png' %}" alt="" />
-		</a> <a href="#">
-			<img src="{% static 'images/partners/06.png' %}" alt="" />
-		</a> <a href="#">
-			<img src="{% static 'images/partners/07.png' %}" alt="" />
-		</a> </div>
+				<div class="owl-carousel partners-carousel" data-responsive-lg="7" data-responsive-md="5" data-responsive-sm="3" data-responsive-xs="2"
+				    data-center="true" data-loop="true">
+					<a href="#">
+						<img src="{% static 'images/partners/01.png' %}" alt="" />
+					</a>
+					<a href="#">
+						<img src="{% static 'images/partners/02.png' %}" alt="" />
+					</a>
+					<a href="#">
+						<img src="{% static 'images/partners/03.png' %}" alt="" />
+					</a>
+					<a href="#">
+						<img src="{% static 'images/partners/04.png' %}" alt="" />
+					</a>
+					<a href="#">
+						<img src="{% static 'images/partners/05.png' %}" alt="" />
+					</a>
+					<a href="#">
+						<img src="{% static 'images/partners/06.png' %}" alt="" />
+					</a>
+					<a href="#">
+						<img src="{% static 'images/partners/07.png' %}" alt="" />
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>

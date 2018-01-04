@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+			<section class="page_breadcrumbs cs gradient background_cover color_overlay section_padding_top_65 section_padding_bottom_65">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12 text-center">
+							<h2>Signup</h2>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="ls columns_padding_25 section_padding_top_75 section_padding_bottom_130">
+				<div class="container">
+					<div class="row">
+							<form class="contact-form row columns_padding_10" method="post" action="./">
+								{% csrf_token %}
+								<div class="col-sm-6">
+									<div class="form-group bottommargin_0"> <label for="name">First Name <span class="required">*</span></label> <input type="text" aria-required="true" size="30" value="" name="first_name" id="id_first_name" class="form-control" placeholder="First Name"><span><p> {{ form.errors.first_name }}</p></span> </div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group bottommargin_0"> <label for="email">Last Name<span class="required">*</span></label> <input type="text" aria-required="true" size="30" value="" name="last_name" id="id_last_name" class="form-control" placeholder="Last Name"><span><p> {{ form.errors.last_name }}</p></span> </div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group bottommargin_0"> <label for="phone">Username</label> <input type="text" size="30" value="" name="username" id="id_username" class="form-control" placeholder="Username"> <span><p> {{ form.errors.username }}</p></span></div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group bottommargin_0"> <label for="phone">Email</label> <input type="text" size="30" value="" name="email" id="id_email" class="form-control" placeholder="Email"> <span><p> {{ form.errors.email }}</p></span> </div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group bottommargin_0"> <label for="phone">Password</label>									<input type="password" name="password1" required="" id="id_password1" class="form-control" placeholder="Password"> <span><p> {{ form.errors.password1 }}</p></span> </div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group bottommargin_0"> <label for="phone">Confirm Password</label>									<input type="password" name="password2" required="" id="id_password2" class="form-control" placeholder="Confirm Password"> <span><p> {{ form.errors.password2 }}</p></span> </div>
+								</div>
+								<div class="col-sm-12">
+									<div class="contact-form-submit topmargin_20"> <button type="submit" name="contact_submit" class="theme_button color1 min_width_button">Signup</button> </div> 
+								</div>
+							</form>
+					</div>
+					<a href="{% url 'login' %}" style="float: right;">Already exist? Login</a>
+					<!--.row -->
+				</div>
+				<!--.container -->
+			</section>
+
+{% endblock %}

@@ -21,6 +21,8 @@
 	<link rel="stylesheet" href="{% static 'css/fonts.css' %}">
 	<link rel="stylesheet" href="{% static 'css/main.css' %}" class="color-switcher-link">
 	<link rel="stylesheet" href="{% static 'css/shop.css' %}">
+	<link rel="stylesheet" href="{% static 'css/crypto_custom.css' %}">
+	<link rel="stylesheet" href="{% static 'css/aos.css' %}">
 	<script src="{% static 'js/vendor/modernizr-2.6.2.min.js' %}"></script>
 	<!--[if lt IE 9]>
 		<script src="{% static 'js/vendor/html5shiv.min.js' %}"></script>
@@ -434,8 +436,15 @@
 	<!-- eof #canvas -->
 	<script src="{% static 'js/compressed.js' %}"></script>
 	<script src="{% static 'js/main.js' %}"></script>
+
+	<script src="{% static 'js/aos.js' %}"></script>
+	<script>
+			AOS.init();
+			</script>
 	<!-- Google Map Script -->
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTwYSMRGuTsmfl2z_zZDStYqMlKtrybxo"></script>
+
+	<script src="{% static 'js/aos.js' %}"></script>
 </body>
 
 </html>
