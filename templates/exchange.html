@@ -2,10 +2,10 @@
 <section class="page_breadcrumbs cs gradient background_cover color_overlay section_padding_top_65 section_padding_bottom_65">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-6 col-sm-5 col-xs-offset-3 col-sm-offset-0">
-				<img src="{% static 'images/faces/01.jpg' %}" class="img-responsive imgcircle300 m-align-center">
+			<div class="hidden-xs col-sm-4">
+				<img src="{% static 'images/faces/01.jpg' %}" class="img-responsive imgcircle250 m-align-center">
 			</div>
-			<div class="col-xs-12 col-sm-7">
+			<div class="col-xs-12 col-sm-8">
 				<div class="col-xs-12">
 					<div class="col-sm-5 rect-input">
 						<input type="text" name="" id="" value="" class="col-xs-6" placeholder="Quantity">
@@ -34,21 +34,25 @@
 				</div>
 				<div class="col-xs-12">
 					<div class="col-xs-6 exchange-rate-font">
-						<span>BTC</span><span>=</span><span>$0.005</span>
+						<span>BTC</span>
+						<span>=</span>
+						<span>$0.005</span>
 					</div>
 					<div class="col-xs-6 exchange-rate-font">
-						<span>AUD</span><span>=</span><span>$0.005</span>
+						<span>AUD</span>
+						<span>=</span>
+						<span>$0.005</span>
 					</div>
 
 				</div>
-				<div class="col-xs-12">
-						<select id="" value="" class="col-xs-6 rect-select">
-								<option>qw</option>
-								<option>qw</option>
-								<option>qw</option>
-								<option>qw</option>
-								<option>qw</option>
-							</select>
+				<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+					<select class="col-xs-12 rect-select ">
+						<option value="" disabled selected>Select your Wallet</option>
+						<option>qw</option>
+						<option>qw</option>
+						<option>qw</option>
+						<option>qw</option>
+					</select>
 				</div>
 
 
@@ -56,6 +60,93 @@
 		</div>
 	</div>
 </section>
+
+<section class="ls section_padding_top_150  columns_padding_25 ">
+	<div class="container">
+		{% for i in "123456" %}
+		<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+			<a href="#chart"><div class=" crypto-box bg{% cycle '1' '2' '3' '4' '5' '6'  %}" id="addbg">
+				<span>BTC</span>&nbsp;
+				<span>$</span>
+				<br>
+
+				<span>2.3</span>&nbsp;
+				<span>BTC</span>
+			</div></a>
+		</div>
+		{% endfor %}
+	</div>
+</section>
+
+<section class="ls  section_padding_bottom_130 columns_padding_25 " id="chart">
+	<div class="container cs gradient background_cover color_overlay h-100">
+		<div class="col-xs-12 col-sm-2 ">
+			<div class="text-center bg-white" id="addbg">
+				<span>BTC</span>
+				<br>
+
+				<span>24 PROFIT</span>&nbsp;
+				<span class="chart-font-green">$</span><span class="chart-font-green">4000</span>
+			</div>
+
+			<div class="bg-white mtop10 chart-side-table">
+				<div class="text-center">
+				<span style="color: gray">History</span>
+			</div>
+				<ul>
+					{% for i in '123456789'%}
+					<li>Test{{ forloop.counter}}</li>
+					{% endfor %}
+				</ul>
+			</div>
+
+			<div>
+
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-10">
+			<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+			<script>
+				google.charts.load('current', {
+					'packages': ['corechart']
+				});
+				google.charts.setOnLoadCallback(drawChart);
+
+				function drawChart() {
+					var data = google.visualization.arrayToDataTable([
+						['Year', 'Sales', 'Expenses'],
+						['2013', 1000, 400],
+						['2014', 1170, 460],
+						['2015', 660, 1120],
+						['2016', 1030, 540]
+					]);
+
+					var options = {
+						title: 'BitCoin',
+						hAxis: {
+							title: 'Year',
+							titleTextStyle: {
+								color: '#333'
+							}
+						},
+						vAxis: {
+							minValue: 0
+						}
+					};
+
+					var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+					chart.draw(data, options);
+				}
+			</script>
+			<div id="chart_div" style="height: 500px;"></div>
+		</div>
+	<div class="clear"></div>
+	</div>
+
+
+</section>
+
+
 <section class="ls section_padding_top_150 section_padding_bottom_130 columns_padding_25">
 	<div class="container">
 		<div class="row">
@@ -65,7 +156,7 @@
 					of digital currency in which encryption techniques are used to regulate the generation of units of currency and verify
 					the transfer of funds, operating independently of a central bank.</p>
 				<div class="topmargin_60">
-					<script type="text/javascript" src="https://www.cryptonator.com/ui/js/widget/calc_widget.js"></script>
+					<!-- <script type="text/javascript" src="https://www.cryptonator.com/ui/js/widget/calc_widget.js"></script> -->
 				</div>
 				<p class="topmargin_30">
 					<a href="#0" class="theme_button color1 min_width_button">buy now!</a>
@@ -88,9 +179,12 @@
 					crypt_base_cur_5 = "Bitcoin Gold (BTG)";
 					crypt_target_cur_5 = "US Dollar (USD)";
 				</script>
-				<script type="text/javascript" src="https://www.cryptonator.com/ui/js/widget/multi_widget.js"></script>
+				<!-- <script type="text/javascript" src="https://www.cryptonator.com/ui/js/widget/multi_widget.js"></script> -->
+
 			</div>
 		</div>
 	</div>
 </section>
+{% endblock %} {% block script %}
+
 {% endblock %}

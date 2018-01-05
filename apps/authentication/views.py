@@ -24,7 +24,7 @@ class RegistrationView(FormView):
     """
     form_class = RegistrationForm
     success_url = None
-    template_name = 'signup.html'
+    template_name = 'authentication/signup.html'
 
     def form_valid(self, form):
         new_user = form.save()
@@ -33,9 +33,8 @@ class RegistrationView(FormView):
             new_user.save()
             token = account_activation_token.make_token(new_user)
             confirm_url = self.request.scheme+"://"+self.request.META['HTTP_HOST']+\
-            reverse('email_confirmation', kwargs={'uidb64': urlsafe_base64_encode(force_bytes(new_user.pk)),
-                'token': token})
-            html_message = "Click the link to verify email address "+confirm_url
+            reverse('email_confirmation', kwargs={'uidb64': urlsafe_base64_encode(force_bytes(new_user.pk)).decode("utf-8"),'token': token})
+            html_message = "Click the link to verify email address <a href='"+confirm_url+"'>Verify</a>"
             try:
                 send_mail('Confrim Registration',
                     '',
@@ -46,7 +45,7 @@ class RegistrationView(FormView):
                     )
             except:
                 pass
-            return render_to_response('success.html')
+            return render_to_response('authentication/success.html')
         else:
             return redirect(reverse('signup'))
 
@@ -60,7 +59,7 @@ account_activation_token = AccountActivationTokenGenerator()
 
 class ConfirmSignUpView(View):
     """ Confirming sign up via link provided in email"""
-    template_name = 'email_verified.html'
+    template_name = 'authentication/email_verified.html'
 
     def get(self, request, *args, **kwargs):
         """ Ckecking token and conforming account activation"""

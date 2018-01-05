@@ -15,8 +15,6 @@ class RegistrationForm(UserCreationForm):
     """
     required_css_class = 'required'
     email = forms.EmailField(label=_("E-mail"))
-    # firstname = forms.CharField(label=_("Firstname"))
-    # lastname = forms.CharField(label=_("Lastname"))
 
     class Meta:
         model = User
