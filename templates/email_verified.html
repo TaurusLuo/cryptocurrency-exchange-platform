@@ -46,10 +46,17 @@
 									<img src="{% static 'images/logo.png' %}" alt="">
 								</a>
 
-					<h2>Success</h2>
+					{% if error %}
+						<h2>Error</h2>
+					{% else %}
+						<h2>Success</h2>
+                    {% endif %}
 					<div class="">
-						<h4>You have successfully verified your email id.</h4>
-
+                        {% if error %}
+                            <h4>You followed an invalid link. Please check.</h4>
+						{% else %}
+							<h3>Successfully Verified. Now You can login with your credentials.</h3>
+						{% endif %}
 					</div>
 					<span>
 						<br>click
