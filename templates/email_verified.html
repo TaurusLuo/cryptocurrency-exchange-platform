@@ -58,9 +58,11 @@
 							<h3>Successfully Verified. Now You can login with your credentials.</h3>
 						{% endif %}
 					</div>
+					{% if not error %}
 					<span>
 						<br>click
 						<a href="{% url 'login' %}" class="success-href">Here</a> to login</span>
+					{% endif %}
 				</div>
 			</div>
 		</div>
