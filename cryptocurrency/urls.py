@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^crypto/', include('apps.bitcoin_crypto.urls')),
     url(r'^auth/', include('apps.authentication.urls')),
     url(r'^welcome/', login_required(TemplateView.as_view(template_name='welcome.html')), name='welcome'),
+    url(r'^exchange/', TemplateView.as_view(template_name='exchange.html'), name='exchange'),
     url(r'^$', IndexView.as_view(), name='index'),
 
 ]

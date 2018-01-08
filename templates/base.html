@@ -242,8 +242,17 @@
 									</li> -->
 									<!-- eof pages -->
 									<li> <a href="{% url 'exchange' %}">Exchange</a> </li>
+									
+                                    {% if not request.user.is_authenticated %}
 									<li> <a href="{% url 'signup' %}">Signup</a> </li>
 									<li> <a href="{% url 'login' %}">Login</a> </li>
+									{% endif %}
+                                    {% if request.user.is_authenticated %}
+                                    <li> <a href="{% url 'transaction_list' %}">Transactions</a> </li>
+                                    <li> <a href="{% url 'logout' %}">Logout</a> </li>
+                                    {% endif %}
+
+									
 									<!-- <li> <a href="#">Features</a>
 										<div class="mega-menu">
 											<ul class="mega-menu-row">
@@ -447,6 +456,9 @@
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTwYSMRGuTsmfl2z_zZDStYqMlKtrybxo"></script>
 
 	<script src="{% static 'js/aos.js' %}"></script>
+    {% block script %}
+    {% endblock %}
+
 </body>
 
 </html>

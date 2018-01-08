@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from .views import  AboutView, IndexStatic, IndexSingle, ShortcodeWidgets, Services, ServicesSingle, \
-    GalleryRegular, Timetable, ExchangeView, BlogRightView, ShopRightView
+    GalleryRegular, Timetable, BlogRightView, ShopRightView, ExchangeRateView, ConfirmView, TransactionListView
 
 
 urlpatterns = [
@@ -13,8 +13,11 @@ urlpatterns = [
     url(r'^services-single/', ServicesSingle.as_view(), name='services_single'),
     url(r'^gallery-regular/', GalleryRegular.as_view(), name='gallery_regular'),
     url(r'^timetable/', Timetable.as_view(), name='timetable'),
-    url(r'^exchange/', ExchangeView.as_view(), name='exchange'),
     url(r'^blog-right/', BlogRightView.as_view(), name='blog_right'),
     url(r'^shop-right/', ShopRightView.as_view(), name='shop_right'),
+    url(r'^exchange-rate/', ExchangeRateView.as_view(), name='exchange_rate'),
+    url(r'^confirm/', ConfirmView.as_view(), name='confirm'),
+    url(r'^transactions/', TransactionListView.as_view(), name='transaction_list'),
+
 
 ]

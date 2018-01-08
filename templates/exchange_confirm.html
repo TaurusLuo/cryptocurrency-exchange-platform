@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section class="page_breadcrumbs cs gradient background_cover color_overlay section_padding_top_65 section_padding_bottom_65">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 col-sm-offset-3">
+				<form class="contact-form row columns_padding_10" method="post" action="./">
+					<p>Enter your {{ request.session.convert_to }} wallet address you like to transfer</p>
+	                {% if error %}<p>{{error}}</p>{% endif %}
+	                {% csrf_token %}
+	                <div class="col-sm-12">
+						<div class="form-group bottommargin_0"> <label for="name">Address <span class="required">*</span></label> <input type="text" aria-required="true" size="30" value="" name="transaction_from" id="id_transaction_from" class="form-control" placeholder="{{ request.session.convert_to }} Address"><span><p> {{ form.errors.transaction_from }}</p></span> </div>
+					</div>
+	                <div class="col-sm-12">
+						<div class="form-group bottommargin_0"> <label for="name">From <span class="required">*</span></label> <input type="text" aria-required="true" size="30" value="{{ request.session.convert_from }}" name="from_currency" id="id_from_currency" class="form-control" disabled><span><p> {{ form.errors.from_currency }}</p></span> </div>
+					</div>
+					<div class="col-sm-12">
+						<div class="form-group bottommargin_0"> <label for="name">To <span class="required">*</span></label> <input type="text" aria-required="true" size="30" value="{{ request.session.convert_to }}" name="to_currency" id="id_to_currency" class="form-control" placeholder="Address" disabled><span><p> {{ form.errors.transaction_from }}</p></span> </div>
+					</div>
+					<div class="col-sm-12">
+						<div class="form-group bottommargin_0"> <label for="name">Amount <span class="required">*</span></label> <input type="text" aria-required="true" size="30" value="{{ request.session.amount }}" name="amount" id="id_amount" class="form-control" placeholder="Address" disabled><span><p> {{ form.errors.amount }}</p></span> </div>
+					</div>
+					<div class="col-sm-12">
+						<div class="contact-form-submit topmargin_20"> <button type="submit" name="contact_submit" class="theme_button color1 min_width_button">Next</button> </div> 
+					</div>
+				</form>
+            </div>
+		</div>
+	</div>
+</section>
+{% endblock %}
