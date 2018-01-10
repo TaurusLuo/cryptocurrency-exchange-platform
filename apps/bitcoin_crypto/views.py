@@ -143,6 +143,7 @@ class ConfirmView(FormView):
                                                    )
             return render(self.request,'pay_in.html', {"address": trans_obj.transaction_to})
 
+@method_decorator(login_required, name='dispatch')
 class TransactionListView(ListView):
     """
     All transactions list of a user
@@ -154,3 +155,7 @@ class TransactionListView(ListView):
         context = super().get_context_data(**kwargs)
         context['object_list'] = self.object_list.filter(user=self.request.user)
         return context
+
+@method_decorator(login_required, name='dispatch')
+class WalletsView(TemplateView):
+    template_name = 'wallets.html'

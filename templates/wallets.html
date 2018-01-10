@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load transaction_status %}
+
+{% block content %}
+			<section class="page_breadcrumbs cs gradient background_cover color_overlay section_padding_top_65 section_padding_bottom_65">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12 text-center">
+							<h2>Wallets </h2>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="ls columns_padding_25 section_padding_top_75 section_padding_bottom_130">
+				<div class="container">
+					<div class="row">
+						{% for obj in request.user.wallets.all %}
+							<h3 class="section_header small">Wallet Name: {{ obj.name }}</h3>
+							<h3 class="section_header small">Address: {{obj.address}}</h3>
+							<h3 class="section_header small">Balance: {% get_bit_balance obj.address request.user.username %}</h3>
+						{% endfor %}
+							
+					</div>
+					<!--.row -->
+				</div>
+				<!--.container -->
+			</section>
+{% endblock %}
