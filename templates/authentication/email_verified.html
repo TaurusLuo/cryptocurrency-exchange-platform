@@ -17,11 +17,7 @@
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 	<link rel="stylesheet" href="{% static 'css/animations.css' %}">
-	<link rel="stylesheet" href="{% static 'css/fonts.css' %}">
-	<link rel="stylesheet" href="{% static 'css/main.css' %}" class="color-switcher-link">
-	<link rel="stylesheet" href="{% static 'css/shop.css' %}">
 	<link rel="stylesheet" href="{% static 'css/crypto_custom.css' %}">
-	<link rel="stylesheet" href="{% static 'css/aos.css' %}">
 	<script src="{% static 'js/vendor/modernizr-2.6.2.min.js' %}"></script>
 	<!--[if lt IE 9]>
 		<script src="{% static 'js/vendor/html5shiv.min.js' %}"></script>
@@ -41,21 +37,21 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-10 text-center success-center">
+				<div class="col-sm-10 text-center success-center white-font">
 								<a href="./" class="logo top_logo top_offset_logo">
-									<img src="{% static 'images/logo.png' %}" alt="">
+									<img src="{% static 'img/logo.png' %}" alt="" class="img-fluid">
 								</a>
 
 					{% if error %}
 						<h2>Error</h2>
 					{% else %}
-						<h2>Success</h2>
+						<h2 class="white-font">Success</h2>
                     {% endif %}
 					<div class="">
                         {% if error %}
                             <h4>You followed an invalid link. Please check.</h4>
 						{% else %}
-							<h3>Successfully Verified. Now You can login with your credentials.</h3>
+							<h3 class="white-font">Successfully Verified. Now You can login with your credentials.</h3>
 						{% endif %}
 					</div>
 					{% if not error %}
