@@ -15,7 +15,7 @@ from django.shortcuts import get_object_or_404
 
 from apps.authentication.forms import ResendActivationForm, RegistrationForm
 from apps.authentication.models import User, Wallet
-from apps.bitcoin_crypto.utils import create_bitwallet
+from apps.bitcoin_crypto.utils import create_bitwallet, create_litewallet
 
 class RegistrationView(FormView):
     """
@@ -29,11 +29,8 @@ class RegistrationView(FormView):
     def form_valid(self, form):
         new_user = form.save()
         if new_user:
-            resp_address = create_bitwallet(new_user)
-            if resp_address:
-                new_user.wallets.add(Wallet.objects.create(name='btc', address=resp_address))
-            else:
-                return redirect(reverse('signup'))
+            create_bitwallet(new_user)
+            create_litewallet(new_user) 
             new_user.is_active = False
             new_user.save()
             token = account_activation_token.make_token(new_user)

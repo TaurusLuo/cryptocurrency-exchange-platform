@@ -8,6 +8,8 @@ from django.utils.crypto import get_random_string
 class Wallet(models.Model):
     name = models.CharField(max_length=20, blank=True, default="")
     address = models.CharField(max_length=500, blank=True, default="")
+    private = models.CharField(max_length=500, blank=True, default="")
+    public = models.CharField(max_length=500, blank=True, default="")
 
     def __str__(self):
         return self.name

@@ -2,9 +2,13 @@ import hashlib
 import hmac
 import json
 import requests
+import subprocess
 
 from bitcoin import *
 from blockcypher import create_wallet_from_address
+from cryptocurrency_wallet_generator import generate_wallet
+
+from apps.authentication.models import Wallet
 
 API_URL = 'https://api.changelly.com'
 API_KEY = ''
@@ -36,12 +40,34 @@ def changelly_transaction(method, params):
 
     return response.json()
 
-def create_bitwallet(user):
+def gen_address(user):
     priv = sha256(user.password)
     pub = privtopub(priv)
     addr = pubtoaddr(pub)
+    return addr,pub,priv
+
+def create_bitwallet(user):
+    addr,pub,priv = gen_address(user)
     resp = create_wallet_from_address(wallet_name=user.username, address=addr, api_key=API_KEY_BLOCK)
     if resp.get("addresses"):
+        user.wallets.add(Wallet.objects.create(name='btc', address=address, private=priv, public=pub))
+        user.save()
         return resp.get("addresses")[0]
+
     else:
       return None
+
+def create_litewallet(user):
+    process = subprocess.Popen(["<<vanity path>>","-X","48","Li"], stdout=subprocess.PIPE)
+    result = process.communicate()[0].strip().decode('utf-8').split('\n')
+    address = result[1].split("Address: ")[1]
+    private_key = result[2].split("Privkey: ")[1]
+    params = {
+                "token": API_KEY_BLOCK,
+                "name": user.username,
+                "address": address
+            }
+    response = requests.post('https://api.blockcypher.com/v1/ltc/main/wallets',json=params)
+    user.wallets.add(Wallet.objects.create(name='ltc', address=address, private=private_key))
+    user.save()
+    return address
