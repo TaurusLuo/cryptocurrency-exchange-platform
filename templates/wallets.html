@@ -28,7 +28,14 @@
 					<div class="col-12 dont-break-out">
 						<label>Balance:</label>
 						<div class="bg-grey">
-							<h5>{% get_bit_balance obj.address request.user.username %}</h5>
+							{% if obj.name == 'btc' %}
+							    <h5>{% get_bit_balance obj.address request.user.username %}</h5>
+							{% endif %}
+							{% if obj.name == 'eth' %}
+							    <h5>{% get_eth_balance obj.address %}</h5>
+							{% else %}
+							<h5>0</h5>
+							{% endif %}
 						</div>
 					</div>
 					<!-- <div class="col-12 dont-break-out">
@@ -44,8 +51,4 @@
 	</div>
 </div>
 
-<!-- {% for obj in request.user.wallets.all %}
-<h3 class="section_header small">Wallet Name: {{ obj.name }}</h3>
-<h3 class="section_header small">Address: {{obj.address}}</h3>
-<h3 class="section_header small">Balance: {% get_bit_balance obj.address request.user.username %}</h3>
-{% endfor %} {% endblock %} -->
+{% endblock %}
