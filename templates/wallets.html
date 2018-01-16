@@ -30,8 +30,7 @@
 						<div class="bg-grey">
 							{% if obj.name == 'btc' %}
 							    <h5>{% get_bit_balance obj.address request.user.username %}</h5>
-							{% endif %}
-							{% if obj.name == 'eth' %}
+							{% elif obj.name == 'eth' %}
 							    <h5>{% get_eth_balance obj.address %}</h5>
 							{% else %}
 							<h5>0</h5>
