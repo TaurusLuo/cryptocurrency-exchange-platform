@@ -80,8 +80,8 @@ def create_ethwallet(user):
     return address
 
 def create_xmrwallet(user):
-    words,address,private_key = gen_new_wallet()
+    words,pub,address,private_key = gen_new_wallet()
     single_word = ",".join(word for word in words)
-    user.wallets.add(Wallet.objects.create(name='eth', address=address, public=single_word, private=private_key))
+    user.wallets.add(Wallet.objects.create(name='xmr', address=address, public=pub, private=private_key))
     user.save()
     return address
