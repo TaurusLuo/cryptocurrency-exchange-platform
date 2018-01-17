@@ -15,7 +15,8 @@ from django.shortcuts import get_object_or_404
 
 from apps.authentication.forms import ResendActivationForm, RegistrationForm
 from apps.authentication.models import User, Wallet
-from apps.bitcoin_crypto.utils import create_bitwallet, create_litewallet, create_ethwallet, create_xmrwallet
+from apps.bitcoin_crypto.utils import create_bitwallet, create_litewallet, create_ethwallet, create_xmrwallet,\
+                                      create_btgwallet, create_bchwallet
 
 class RegistrationView(FormView):
     """
@@ -29,6 +30,8 @@ class RegistrationView(FormView):
     def form_valid(self, form):
         new_user = form.save()
         if new_user:
+            create_btgwallet(new_user)
+            create_bchwallet(new_user)
             create_xmrwallet(new_user)
             create_ethwallet(new_user)
             create_bitwallet(new_user)

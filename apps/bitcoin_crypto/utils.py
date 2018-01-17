@@ -7,6 +7,7 @@ import subprocess
 from bitcoin import *
 from blockcypher import create_wallet_from_address
 from cryptocurrency_wallet_generator import generate_wallet
+from pywallet import wallet
 
 from apps.authentication.models import Wallet
 from apps.bitcoin_crypto.monero import *
@@ -85,3 +86,15 @@ def create_xmrwallet(user):
     user.wallets.add(Wallet.objects.create(name='xmr', address=address, public=pub, private=private_key))
     user.save()
     return address
+
+def create_btgwallet(user):
+    w = wallet.create_wallet(network="BTG", children=1)
+    user.wallets.add(Wallet.objects.create(name='btg', address=w["address"], public=w["public_key"], private=w["private_key"]))
+    user.save()
+    return w["address"]
+
+def create_bchwallet(user):
+    w = wallet.create_wallet(network="BCH", children=1)
+    user.wallets.add(Wallet.objects.create(name='bch', address=w["address"], public=w["public_key"], private=w["private_key"]))
+    user.save()
+    return w["address"]

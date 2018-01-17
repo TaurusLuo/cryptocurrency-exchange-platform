@@ -2,3 +2,4 @@ Django==1.11
 pytz==2017.3
 bitcoin==1.1.39
 blockcypher==1.0.73
+pywallet==0.0.6
