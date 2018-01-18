@@ -53,7 +53,6 @@ def create_bitwallet(user):
       return None
 
 def create_litewallet(user):
-    import pdb;pdb.set_trace()
     w = wallet.create_wallet(network="LTC", children=0)
     params = {
                 "token": API_KEY_BLOCK,
@@ -89,3 +88,5 @@ def create_bchwallet(user):
     user.wallets.add(Wallet.objects.create(name='bch', address=w["address"], public=w["public_key"], private=w["private_key"]))
     user.save()
     return w["address"]
+
+
