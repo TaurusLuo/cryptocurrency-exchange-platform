@@ -23,13 +23,6 @@ def changelly_transaction(method, params):
                   "jsonrpc": "2.0",
                   "method": method,
                   "params": params,
-                  # {
-                  #   "from": "ltc",
-                  #   "to": "eth",
-                  #   "address": "0x49f79352100bd92eb2ba3daa30852f03abdd8315",
-                  #   "extraId": None,
-                  #   "amount": 1
-                  # },
                   "id": 1
                 }
 
@@ -60,19 +53,17 @@ def create_bitwallet(user):
       return None
 
 def create_litewallet(user):
-    process = subprocess.Popen(["/home/techversant/anandProjects/cryptocurrency_exchange/vanitygen/vanitygen","-X","48","Li"], stdout=subprocess.PIPE)
-    result = process.communicate()[0].strip().decode('utf-8').split('\n')
-    address = result[1].split("Address: ")[1]
-    private_key = result[2].split("Privkey: ")[1]
+    import pdb;pdb.set_trace()
+    w = wallet.create_wallet(network="LTC", children=0)
     params = {
                 "token": API_KEY_BLOCK,
                 "name": user.username,
-                "address": address
+                "address": w["address"]
             }
     response = requests.post('https://api.blockcypher.com/v1/ltc/main/wallets',json=params)
-    user.wallets.add(Wallet.objects.create(name='ltc', address=address, private=private_key))
+    user.wallets.add(Wallet.objects.create(name='ltc', address=w["address"], private=w["private_key"]))
     user.save()
-    return address
+    return w["address"]
 
 def create_ethwallet(user):
     private_key,address = generate_wallet("Ethereum")
