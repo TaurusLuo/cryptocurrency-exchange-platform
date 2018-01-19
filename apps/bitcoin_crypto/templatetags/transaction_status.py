@@ -27,3 +27,18 @@ def get_eth_balance(address):
     bal_req = requests.get("https://api.ethplorer.io/getAddressInfo/"+address+"?apiKey=freekey").text
     bal = json.loads(bal_req)
     return bal['ETH']['balance']
+
+@register.simple_tag
+def get_btg_balance(address):
+    bal_req = requests.get("http://btgblocks.com/ext/getbalance/"+address).text
+    if "error" in bal_req:
+        balance = 0
+    else:
+        balance = bal_req
+    return balance
+
+@register.simple_tag
+def get_ltc_balance(address):
+    bal_req = requests.get("https://api.blockcypher.com/v1/ltc/main/addrs/"+address).text
+    bal = json.loads(bal_req)
+    return bal['balance']

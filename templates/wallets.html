@@ -32,6 +32,10 @@
 							    <h5>{% get_bit_balance obj.address request.user.username %}</h5>
 							{% elif obj.name == 'eth' %}
 							    <h5>{% get_eth_balance obj.address %}</h5>
+                            {% elif obj.name == 'btg' %}
+							    <h5>{% get_btg_balance obj.address %}</h5>
+							{% elif obj.name == 'ltc' %}
+							    <h5>{% get_ltc_balance obj.address %}</h5>
 							{% else %}
 							<h5>0</h5>
 							{% endif %}
