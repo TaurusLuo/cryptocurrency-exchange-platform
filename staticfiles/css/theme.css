@@ -1,0 +1,366 @@
+.h80 {
+    min-height: 80px;
+}
+
+.w40 {
+    width: 40px;
+}
+
+.bg-blue {
+    background-color: #1783ab;
+}
+
+.align-vertical {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.bit-font {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.nav-darkblue {
+    background-color: #1b334b;
+}
+
+.nav-font {
+    font-size: 14px;
+    line-height: 38px;
+    color: rgb(255, 255, 255);
+    font-family: "Source Sans Pro";
+    text-align: right;
+}
+
+/***************fonts******************/
+
+.sansthick {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 600;
+}
+
+.text-lower {
+    text-transform: lowercase;
+}
+
+.about-head {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/************footer*************/
+
+.footer-bold {
+    font-size: 36px;
+    line-height: 22px;
+    color: rgb(255, 255, 255);
+    font-weight: 1000;
+    font-stretch: normal;
+    text-align: center;
+}
+
+.footer ul {
+    padding-left: 0px;
+}
+
+.footer ul li {
+    list-style: none;
+}
+
+.bg-black {
+    background-color: #151515;
+}
+
+.bg-navyblue {
+    background-color: #1c334d;
+}
+
+.footer-header {
+    font-size: 28px;
+    color: white;
+    font-weight: 600px;
+}
+
+.footer-header-line {
+    border-top: 2px solid white;
+    width: 55px;
+    margin-top: 5px;
+}
+
+.bg-lightblue {
+    background-color: #1cbeca
+}
+
+.fsc {
+    width: 50px;
+    height: 50px;
+    background: #12dbea;
+    border-radius: 50%;
+    padding: 10px;
+    color: white;
+}
+
+/********************index******************/
+
+.line-left {
+    border-left: 4px solid white;
+}
+
+.index-h1 {
+    font-weight: 700;
+    font-size: 50px;
+    text-transform: capitalize;
+}
+
+.index-h2 {
+    font-size: 42px;
+}
+
+.slider-btn {
+    width: 126px;
+    height: 40px;
+    background-color: #1bbdc9;
+    border-radius: 0px;
+    color: white;
+}
+
+.slider-btn-2 {
+    width: 126px;
+    height: 40px;
+    background-color: #0f0f0f;
+    border-radius: 0px;
+    border: 2px solid #1bbdc9;
+    color: white;
+}
+
+.slider-bg {
+    background-color: #0f0f0f;
+}
+
+/***********************section************************/
+
+.section-dark {
+    background-color: #1c334c;
+}
+
+.section-light {
+    background-color: #26415a;
+}
+
+.section-blue {
+    background-color: #1783ac;
+}
+
+.recent-price {
+    position: relative;
+}
+
+.trade-price-h1 {
+    color: #00c2d2;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.trade-price-p {
+    font-size: 14px;
+}
+
+.b-r {
+    border-right: 1px solid #315270;
+}
+
+.recent-price .tooltiptext {
+    display: none;
+}
+
+.recent-price:hover .tooltiptext {
+    display: block;
+    width: 150px;
+    background-color: #1c334c;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+    z-index: 1;
+}
+
+.recent-price:hover .tooltiptext:before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -8px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid #1C334C;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+}
+
+.recent-price-h1 {
+    font-weight: 600;
+    font-size: 14px;
+    color: #80a6b7;
+}
+
+/**************about**********************/
+
+.line-1 {
+    background: white;
+    height: 2px;
+}
+
+.whychoose {
+    padding: 10px;
+}
+
+.whychoose:hover {
+    background-color: #4aa7ca;
+}
+
+.btn-lightblue {
+    width: 135px;
+    height: 40px;
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+    background-color: #1783ab;
+    padding: 8px;
+}
+
+.btn-empty {
+    width: 135px;
+    height: 40px;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+    padding: 8px;
+    border: 1px solid #1783ab;
+}
+
+.btn-empty2 {
+    width: 135px;
+    height: 40px;
+    padding: 8px;
+    border: 1px solid #1783ab;
+}
+
+.pricing-border {
+    border: 1px solid #1783ab;
+    padding: 50px 0 50px 0;
+}
+
+.pricing-border:hover {
+    border-radius: 6px;
+    background-color: #1783ab;
+    transform: scale(1.1);
+}
+
+.pb-l {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.pb-r {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.pricing-h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    padding-top: 20px;
+}
+
+.pricing-line-1 {
+    width: 180px;
+    height: 1px;
+    background-color: #1783ab;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 20px;
+}
+
+.pricing-line-2 {
+    width: 100px;
+    height: 3px;
+    background-color: #9bb8da;
+    margin: 0 auto;
+    top: -1px;
+    position: absolute;
+    left: 40px;
+}
+
+.pricing-btn-empty {
+    width: 100px;
+    height: 40px;
+    border-radius: 6px;
+    padding: 8px;
+    border: 1px solid #1783ab;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.pricing-border:hover .pricing-btn-empty {
+    border: 1px solid #FFF;
+}
+
+/*********************** feedback************************/
+
+.feedback-quote {
+    font-size: 32px;
+    color: #52adfb;
+}
+
+.empty-border {
+    border: 1px solid #1783ab;
+    padding: 10px;
+}
+
+.empty-border:hover {
+    background-color: #1783ab;
+}
+
+.marketbox {
+    height: 300px;
+    background-color: #0f0f0f;
+}
+
+.coin-btn-empty {
+    padding: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border: 1px solid skyblue;
+    padding: 20px 50px 20px 50px;
+    border-radius: 25px;
+}
+
+.coin-btn-empty:hover {
+    background-color: white;
+    color: #1783ab;
+}
+
+.exhange-btn-back {
+    padding: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border: 1px solid #1783ab;
+    padding: 10px 30px 10px 30px;
+    border-radius: 6px;
+}
+
+.exhange-btn-back:hover {
+    background-color: #1783ab;
+    color: white !important;
+}
+
+.canvas-style {
+    width: 100% !important;
+    max-width: 800px;
+    height: auto !important;
+    margin: 0 auto;
+}
