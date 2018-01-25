@@ -109,7 +109,7 @@ AUTHENTICATION_BACKENDS = (
 
 LOGIN_URL = '/auth/login'
 
-LOGIN_REDIRECT_URL = '/welcome/'
+LOGIN_REDIRECT_URL = '/auth/otp/'
 
 # Application definition
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -122,6 +122,10 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'dev@virtualwallets.com.au'
 
+
+TWILIO_ACCOUNT_SID = ""
+TWILIO_AUTH_TOKEN = ""
+TWILIO_FROM_NUMBER = ""
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 

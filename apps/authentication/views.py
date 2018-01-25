@@ -1,3 +1,5 @@
+import random
+
 from django.conf import settings
 from django.shortcuts import redirect, render_to_response, render
 from django.utils.decorators import method_decorator
@@ -12,6 +14,9 @@ from django.urls import reverse
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_text
 from django.shortcuts import get_object_or_404
+from django.template import RequestContext
+
+from twilio.rest import Client
 
 from apps.authentication.forms import ResendActivationForm, RegistrationForm
 from apps.authentication.models import User, Wallet
@@ -55,6 +60,57 @@ class RegistrationView(FormView):
             return render_to_response('authentication/success.html')
         else:
             return redirect(reverse('signup'))
+
+
+class TwoFactorAuthenticationView(TemplateView):
+    template_name = "authentication/otp.html"
+
+    def dispatch(self,request,*args,**kwargs):
+        if not self.request.user.phone_number and not self.request.method == "POST":
+            return render(self.request,"authentication/mobile.html")
+        elif self.request.user.phone_number and not self.request.method == "POST":
+            pin =  self._get_pin()
+            self.request.session['otp'] = pin
+            self.send_otp(pin,self.request.user.phone_number)
+            return render(self.request,"authentication/otp.html")
+        else:
+            return self.post(self,request,args,kwargs)
+
+    def post(self,request,*args,**kwargs):
+        number = self.request.POST.get('phone_number')
+        if number:
+            User.objects.filter(id = self.request.user.id).update(phone_number=number)
+            pin =  self._get_pin()
+            self.request.session['otp'] = pin
+            try:
+                self.send_otp(pin,number)
+            except:
+                User.objects.filter(id = self.request.user.id).update(phone_number='')
+                return render(self.request,"authentication/mobile.html",{"error":"Please Check the Phone Number"})
+            return render(self.request,"authentication/otp.html")
+        else:
+            if self.request.POST.get('otp') == self.request.session['otp']:
+                del self.request.session['otp']
+                self.request.session['otp-verified'] = True
+                return redirect(reverse('welcome'))
+            else:
+                pin = self._get_pin()
+                self.request.session['otp'] = pin
+                self.send_otp(pin,self.request.user.phone_number)
+                return render(self.request,"authentication/otp.html")
+
+    def send_otp(self,pin,number):
+        client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
+        message = client.messages.create(
+                                body="Your verification code is %s" % pin,
+                                to=number,
+                                from_=settings.TWILIO_FROM_NUMBER,
+                            )
+
+    def _get_pin(self,length=5):
+        """ Return a numeric PIN with length digits """
+        return str(random.sample(range(10**(length-1), 10**length), 1)[0])
+
 
 
 class AccountActivationTokenGenerator(PasswordResetTokenGenerator):

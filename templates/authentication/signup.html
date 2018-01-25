@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'theme/base.html' %} {% load static %} {% block content %}
 <div class="page-header-dark col-12">
 	<h1 class="page-header-font-yellow">Signup</h1>
 	<div class="breadcrumbs-dark">
@@ -13,8 +13,13 @@
 <section class="col-12 mt-5 p-5">
 	<div class="container text-center">
 		<div class="row">
-			<form class="contact-form row columns_padding_10" method="post" action="./">
+			<form name="signup-form" class="contact-form row columns_padding_10" method="post" action="./">
 				{% csrf_token %}
+				<div class="col-sm-6 offset-sm-3">
+					<div class="form-group bottommargin_0">
+				        <div id="form-error" style="color: red;">{{ form.non_field_errors }}</div>
+				    </div>
+				</div>
 				<div class="col-sm-6 offset-sm-3">
 					<div class="form-group bottommargin_0">
 						<input type="text" aria-required="true" size="30" value="" name="first_name" id="id_first_name" class="form-control signup-input"
@@ -66,8 +71,13 @@
 						</span>
 					</div>
 				</div>
+				<div class="col-sm-6 offset-sm-3">
+					<div class="form-group bottommargin_0">
+				        <div class="g-recaptcha" data-sitekey="6LdEcUIUAAAAAOdzadXa7dD9wVAs-g-AtegbLlM0"></div>
+				    </div>
+				</div>
 				<div class="col-sm-12 text-center">
-						<button type="submit" name="contact_submit" class="btn  btn-secondary exchange-next">Signup</button>
+						<button type="button" name="contact_submit" onclick="validateForm()" class="btn  btn-secondary exchange-next">Signup</button>
 			
 				</div>
 			</form>
@@ -77,5 +87,15 @@
 	</div>
 	<!--.container -->
 </section>
-
+<script type="text/javascript">
+function validateForm() {	
+    var recaptcha = document.forms["signup-form"]["g-recaptcha-response"].value;
+    if (recaptcha == "") {
+        $("#form-error").text("Recaptcha Failed");
+    }
+    else{
+    	$("form").submit();
+    }
+}
+</script>
 {% endblock %}

@@ -13,7 +13,7 @@ from django.utils.decorators import method_decorator
 from apps.bitcoin_crypto.forms import TransactionForm
 from apps.bitcoin_crypto.models import Transaction
 from apps.bitcoin_crypto.utils import changelly_transaction
-
+from apps.authentication.decorators import check_otp
 
 CURRENCY = {
     '0': 'btc',
@@ -27,7 +27,7 @@ CURRENCY = {
 
 
 class IndexView(TemplateView):
-    template_name = 'index.html'
+    template_name = 'theme/index.html'
 
 
 class AboutView(TemplateView):
@@ -109,6 +109,7 @@ class ExchangeRateView(View):
         return HttpResponse(json.dumps(data), content_type='application/json')
 
 @method_decorator(login_required, name='dispatch')
+@method_decorator(check_otp, name='dispatch')
 class ConfirmView(FormView):
     """
     Create transaction

@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.contrib.auth import views as auth_views
 
-from apps.authentication.views import RegistrationView, ConfirmSignUpView
+from apps.authentication.views import RegistrationView, ConfirmSignUpView, TwoFactorAuthenticationView
 
 urlpatterns = [
     url(r'^signup/', RegistrationView.as_view(), name='signup'),
@@ -16,4 +16,5 @@ urlpatterns = [
     url(r'^reset/done/$', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     url(r'^password_change/$', auth_views.PasswordChangeView.as_view(), name='password_change'),
     url(r'^password_change/done/$', auth_views.PasswordChangeDoneView.as_view(), name='password_change_done'),
+    url(r'otp/$',TwoFactorAuthenticationView.as_view(), name='otp'),
 ]

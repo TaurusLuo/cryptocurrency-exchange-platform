@@ -24,6 +24,7 @@
 		<script src="{% static 'js/vendor/respond.min.js' %}"></script>
 		<script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
 	<![endif]-->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 <body>
@@ -51,11 +52,11 @@
                 </li>
             </ul>
             {% else %}
-            <a class="nav-item nav-link" href="{% url 'signup' %}">
+            <a class="nav-item nav-link" href="{% url 'login' %}">
                 <span class="white-font bit-font">
                     <i class="fa fa-user "> </i> LOGIN</span>
             </a>
-            <a class="nav-item nav-link " href="{% url 'login' %}">
+            <a class="nav-item nav-link " href="{% url 'signup' %}">
                 <span class="white-font bit-font">
                     <i class="fa fa-sign-in "> </i> SIGNUP</span>
             </a>
