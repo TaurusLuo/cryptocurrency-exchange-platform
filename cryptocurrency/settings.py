@@ -113,12 +113,11 @@ LOGIN_REDIRECT_URL = '/auth/otp/'
 
 # Application definition
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtpout.secureserver.net'
-EMAIL_PORT = 80
+EMAIL_HOST = 'smtp.office365.com'
+EMAIL_PORT = 587
 
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-#EMAIL_HOST_PASSWORD = 'developer@realtordaddy'
+EMAIL_HOST_USER = 'dev@virtualwallets.com.au'
+EMAIL_HOST_PASSWORD = 'QNuNnGH(5LL"\96_'
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'dev@virtualwallets.com.au'
 

@@ -15,7 +15,7 @@ from apps.bitcoin_crypto.monero import *
 API_URL = 'https://api.changelly.com'
 API_KEY = ''
 API_SECRET = ''
-API_KEY_BLOCK = 'ee97d6ff1cbe43cd8cc125c8d79fffa1'
+API_KEY_BLOCK = ''
 
 
 def changelly_transaction(method, params):
