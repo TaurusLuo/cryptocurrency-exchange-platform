@@ -125,7 +125,7 @@ h1, h2, h3, h4, h5 {
 
 .page-header-font-yellow {
     font-size: 3em;
-    color: #e3ba64;
+    color: #1783ab;
     font-weight: 500;
 }
 
@@ -280,16 +280,16 @@ select:-moz-focusring {}
 
 .exchange-input {
     height: 75px;
-    border: 1px solid #e4ba64;
+    border: 1px solid #1783ab;;
     border-radius: 40px;
 }
 
 .exchange-border-left {
-    border-left: 1px solid #cfcfcf;
+    border-left: 1px solid #1783ab;;
 }
 
 .exchange-amount {
-    color: #e4ba64;
+    color: #1783ab;;
     font-size: 60pt;
     font-weight: 600;
 }
@@ -297,7 +297,7 @@ select:-moz-focusring {}
 .exchange-next {
     width: 150px;
     border-radius: 25px;
-    background: #e4ba64;
+    background: #1783ab;;
     border: none;
     height: 50px;
 }

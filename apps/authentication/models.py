@@ -19,4 +19,14 @@ class User(AbstractUser):
     first_name = models.CharField(max_length=200, blank=True, default="")
     last_name = models.CharField(max_length=200, blank=True, default="")
     phone_number  = models.CharField(max_length=20, blank=True, default="")
-    wallets = models.ManyToManyField(Wallet)
+    wallets = models.ManyToManyField(Wallet) 
+
+
+class AccessLog(models.Model):
+    user = models.ForeignKey(User)
+    ip = models.CharField(max_length=500, blank=True, default="")
+    device = models.CharField(max_length=500, blank=True, default="")
+    time = models.DateTimeField(auto_now_add=True)
+    time.editable=True
+    def __str__(self):
+        return self.user.username+"-"+self.device

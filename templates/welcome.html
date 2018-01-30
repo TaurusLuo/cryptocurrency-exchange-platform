@@ -1,18 +1,21 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 
-<div class="col-sm-12 text-center">
-	<h2>Welcome <span class="page-header-font-yellow">{{request.user.first_name}}</span> </h2>
+<div class="col-sm-12 text-center" style="color:#000;">
+	<span class="page-header-font-yellow"><h1>Welcome {{request.user.first_name}}</h1></span>
 </div>
 
-<section class="col-12">
+<section class="col-12" style="color:#000;">
 
-			<h3 class="">Name: {{request.user.first_name}} {{request.user.last_name}}</h3>
-			<h3 class="">Email: {{request.user.email}}</h3>
-			<a href="{% url 'logout' %}"> Logout </a>
-
+			<h3>Name: {{request.user.first_name}} {{request.user.last_name}}</h3>
+			<h3>Email: {{request.user.email}}</h3>
+			{% if last %}
+			<h3 class="text-center" style="color:#1783ab;">Last Login</h3>
+			<h4>Device: {{last.device}}</h4>
+			<h4>IP: {{last.ip}}</h4>
+			{% endif %}
 </section>
 
-<section class="col-12 text-center">
+<section class="col-12 text-center" style="color:#000;">
 	<!-- market_cap -->
 				<h3>CryptoCurrency Market Capitalizations</h3>
 

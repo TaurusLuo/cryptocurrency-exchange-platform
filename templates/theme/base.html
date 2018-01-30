@@ -79,11 +79,10 @@
             <div class="navbar-nav text-uppercase mr-auto">
                 <a class="nav-item nav-link active" href="{% url 'index' %}">home</a>
                 <a class="nav-item nav-link" href="{% url 'exchange' %}">Exchange</a>
-                <a class="nav-item nav-link " href="#">Buy & Sell</a>
-                <a class="nav-item nav-link " href="#">Market Data</a>
-                <a class="nav-item nav-link " href="{% url 'wallets' %}">Wallet</a>
-                <a class="nav-item nav-link " href="#">Affiliate</a>
-                <a class="nav-item nav-link " href="#">Blog</a>
+                {% if user.is_authenticated %}
+                    <a class="nav-item nav-link " href="{% url 'wallets' %}">Wallet</a>
+                    <a class="nav-item nav-link " href="{% url 'transaction_list' %}">Transactions</a>
+                {% endif %}
 
                 <!-- {% if  user.is_authenticated %}
 
@@ -96,7 +95,7 @@
 
 
             </div>
-            <div class="float-right  navbar-nav text-uppercase ">
+            <!-- <div class="float-right  navbar-nav text-uppercase ">
                 <a class="nav-item nav-link" href="{% url 'signup' %}">
                     <span class="white-font bit-font">+71 123 456789</span>
                 </a>
@@ -104,7 +103,7 @@
                     <span class="white-font bit-font text-lower">info@bitexchange.com</span>
                 </a>
 
-            </div>
+            </div> -->
         </div>
     </nav>
 
@@ -113,6 +112,7 @@
 
         {% block carousel%} {% endblock carousel %}
     </div>
+    {% block content_wallet %} {% endblock content_wallet %}
     <!-- end caraousel -->
     <div class="container-fluid">
         <div class="row">

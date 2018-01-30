@@ -19,7 +19,7 @@ from django.template import RequestContext
 from twilio.rest import Client
 
 from apps.authentication.forms import ResendActivationForm, RegistrationForm
-from apps.authentication.models import User, Wallet
+from apps.authentication.models import User, Wallet, AccessLog
 from apps.bitcoin_crypto.utils import create_bitwallet, create_litewallet, create_ethwallet, create_xmrwallet,\
                                       create_btgwallet, create_bchwallet
 
@@ -92,6 +92,9 @@ class TwoFactorAuthenticationView(TemplateView):
             if self.request.POST.get('otp') == self.request.session['otp']:
                 del self.request.session['otp']
                 self.request.session['otp-verified'] = True
+                device = self.request.META['HTTP_USER_AGENT']
+                ip = self.request.META['REMOTE_ADDR']
+                AccessLog.objects.create(user= self.request.user, device=device, ip=ip)
                 return redirect(reverse('welcome'))
             else:
                 pin = self._get_pin()

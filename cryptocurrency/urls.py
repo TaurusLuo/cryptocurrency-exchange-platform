@@ -19,14 +19,14 @@ from django.conf import settings
 from django.views.generic.base import TemplateView
 from django.contrib.auth.decorators import login_required
 
-from apps.bitcoin_crypto.views import IndexView
+from apps.bitcoin_crypto.views import IndexView, WelcomeView
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^crypto/', include('apps.bitcoin_crypto.urls')),
     url(r'^auth/', include('apps.authentication.urls')),
-    url(r'^welcome/', login_required(TemplateView.as_view(template_name='welcome.html')), name='welcome'),
+    url(r'^welcome/', WelcomeView.as_view(), name='welcome'),
     url(r'^exchange/', TemplateView.as_view(template_name='theme/exchange.html'), name='exchange'),
     url(r'^$', IndexView.as_view(), name='index'),
 

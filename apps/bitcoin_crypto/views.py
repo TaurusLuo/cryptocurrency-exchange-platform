@@ -14,6 +14,7 @@ from apps.bitcoin_crypto.forms import TransactionForm
 from apps.bitcoin_crypto.models import Transaction
 from apps.bitcoin_crypto.utils import changelly_transaction
 from apps.authentication.decorators import check_otp
+from apps.authentication.models import AccessLog
 
 CURRENCY = {
     '0': 'btc',
@@ -30,49 +31,17 @@ class IndexView(TemplateView):
     template_name = 'theme/index.html'
 
 
-class AboutView(TemplateView):
-    template_name = 'about.html'
+@method_decorator(login_required, name='dispatch')
+@method_decorator(check_otp, name='dispatch')
+class WelcomeView(TemplateView):
+    template_name = 'welcome.html'
 
-
-class IndexStatic(TemplateView):
-    template_name = 'index-static.html'
-
-
-class IndexSingle(TemplateView):
-    template_name = 'index-single.html'
-
-
-class ShortcodeWidgets(TemplateView):
-    template_name = 'shortcodes_teasers.html'
-
-
-class Services(TemplateView):
-    template_name = 'services.html'
-
-
-class ServicesSingle(TemplateView):
-    template_name = 'service-single.html'
-
-
-class GalleryRegular(TemplateView):
-    template_name = 'gallery-regular.html'
-
-
-class Timetable(TemplateView):
-    template_name = 'timetable.html'
-
-
-# class ExchangeView(TemplateView):
-#     template_name = 'exchange.html'
-
-
-class BlogRightView(TemplateView):
-    template_name = 'blog-right.html'
-
-
-class ShopRightView(TemplateView):
-    template_name = 'shop-right.html'
-
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        logs = AccessLog.objects.filter(user=self.request.user)
+        if logs:
+            context["last"] = logs[len(logs)-1] 
+        return context
 
 
 class ExchangeRateView(View):
@@ -145,6 +114,7 @@ class ConfirmView(FormView):
             return render(self.request,'pay_in.html', {"address": trans_obj.transaction_to})
 
 @method_decorator(login_required, name='dispatch')
+@method_decorator(check_otp, name='dispatch')
 class TransactionListView(ListView):
     """
     All transactions list of a user
@@ -158,5 +128,6 @@ class TransactionListView(ListView):
         return context
 
 @method_decorator(login_required, name='dispatch')
+@method_decorator(check_otp, name='dispatch')
 class WalletsView(TemplateView):
     template_name = 'wallets.html'
