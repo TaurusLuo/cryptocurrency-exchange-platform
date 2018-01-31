@@ -234,24 +234,48 @@
 
 {% endblock %} {% block script %}
 <script type="text/javascript">
-	convertWidget();
-	$('#convert_from li, #convert_to li').click(function (e) {
-		convertWidget();
-        console.log(e.target.value)
+	convertWidget1($('#convert_to').find("li.selected").val());
+	$('#convert_from li').click(function (e) {
+		convertWidget2(e.target.value);
 
 	})
+	$('#convert_to li').click(function (e) {
+         convertWidget1(e.target.value);
+    })
 
 	$('#convert_amount').keyup(function () {
-		convertWidget();
+		convertWidget1($('#convert_to').find("li.selected").val());
 
 
 	})
-    function setValues(){
-		
-		
-	}
-	function convertWidget() {
+    
+	function convertWidget1(convert_to) {
 		convert_from = $('#convert_from').find("li.selected").val()
+		amount = $('#convert_amount').val()
+		$.ajax({
+			type: "POST",
+			url: "{% url 'exchange_rate' %}",
+			data: {
+				'from': convert_from,
+				'to': convert_to,
+				'amount': amount,
+				csrfmiddlewaretoken: '{{ csrf_token }}'
+			},
+			success: function (data) {
+				$("#converted_amount").attr({
+					'value': data.result
+				});
+				from_text = $('#convert_from').find("li.selected").text()
+				to_text = $('#convert_to').find("li.selected").text()
+				$(".from_cur").text(from_text)
+				$(".to_cur").text(to_text)
+				$("#from_cur_img").attr({"src":"/static/img/coins/"+from_text+".png"})
+				$("#to_cur_img").attr({"src":"/static/img/coins/"+to_text+".png"})
+				
+			}
+		})
+	}
+	function convertWidget2(convert_from) {
 		convert_to = $('#convert_to').find("li.selected").val()
 		amount = $('#convert_amount').val()
 		$.ajax({

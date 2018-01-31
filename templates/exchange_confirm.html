@@ -7,9 +7,9 @@
 				
 				<div class="col-12  text-center ">
 						
-						<img src="{% static 'img/coins/btc.png'%}" class="img-fluid" width="40%">
+						<img src="{% static 'img/coins/'%}{{request.session.convert_from}}.png" class="img-fluid" width="40%">
 						<br>
-						<h3>btc</h3>
+						<h3>{{request.session.convert_from}}</h3>
 				</div>
 				<div style="font-size: 40px;
     margin-top: 15px !important;
@@ -19,9 +19,9 @@
 						<span class="fa fa-exchange exchangefa margin-center"></span>
 				</div>
 				<div class="col-12  text-center ">
-						<img src="{% static 'img/coins/ltc.png'%}" class="img-fluid" width="40%">
+						<img src="{% static 'img/coins/' %}{{request.session.convert_to}}.png" class="img-fluid" width="40%">
 						<br>
-						<h3>ltc</h3>
+						<h3>{{request.session.convert_to}}</h3>
 				</div>
 			</div>
 			<div class="col-sm-6 p-5 exchange-border-left">

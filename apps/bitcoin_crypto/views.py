@@ -1,14 +1,17 @@
+import random
 import os
 import hashlib
 import hmac
 import json
 import requests
 from decimal import Decimal
+from twilio.rest import Client
 
 from django.shortcuts import render, HttpResponse, render_to_response
 from django.views.generic import TemplateView, FormView, View, ListView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.conf import settings
 
 from apps.bitcoin_crypto.forms import TransactionForm
 from apps.bitcoin_crypto.models import Transaction
@@ -39,8 +42,8 @@ class WelcomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         logs = AccessLog.objects.filter(user=self.request.user)
-        if logs:
-            context["last"] = logs[len(logs)-1] 
+        if len(logs)>2:
+            context["last"] = logs[len(logs)-2] 
         return context
 
 
@@ -50,7 +53,6 @@ class ExchangeRateView(View):
     If no amount entered will take the minimum transaction amount
     """
     def post(self, request, *args, **kwargs):
-
         convert_from = CURRENCY[request.POST.get('from')]
         convert_to = CURRENCY[request.POST.get('to')]
         amount = request.POST.get('amount')
@@ -85,9 +87,28 @@ class ConfirmView(FormView):
     """
     template_name = 'exchange_confirm.html'
     form_class = TransactionForm
-    success_url = '/thanks/'
+    
+    def post(self, *args, **kwargs):
+        if self.request.POST.get('otp'):
+            if self.request.session['confirm_otp'] == self.request.POST.get('otp'):
+                address = self.request.session['address']
+                del self.request.session['confirm_otp']
+                del self.request.session['address']
+                return render(self.request,'pay_in.html', {"address": address})
+            else:
+                pin = self._get_pin()
+                self.request.session['confirm_otp'] = pin
+                self.send_otp(pin,self.request.user.phone_number)
+                return render(self.request,"authentication/otp.html")
+        form = self.form_class(data=self.request.POST)
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid()
+
 
     def form_valid(self, form):
+
         transaction_from = form.cleaned_data.get('transaction_from')
         convert_from = self.request.session['convert_from']
         convert_to = self.request.session['convert_to']
@@ -111,7 +132,25 @@ class ConfirmView(FormView):
                                                     transaction_from = data['result'].get('payoutAddress'),
                                                     transaction_to = data['result'].get('payinAddress')
                                                    )
-            return render(self.request,'pay_in.html', {"address": trans_obj.transaction_to})
+
+            pin = self._get_pin()
+            self.request.session['confirm_otp'] = pin
+            self.request.session['address'] = trans_obj.transaction_to
+            self.send_otp(pin,self.request.user.phone_number)
+            return render(self.request,"authentication/otp.html")
+            # return render(self.request,'pay_in.html', {"address": trans_obj.transaction_to})
+
+    def send_otp(self,pin,number):
+        client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
+        message = client.messages.create(
+                                body="Your verification code is %s" % pin,
+                                to=number,
+                                from_=settings.TWILIO_FROM_NUMBER,
+                            )
+
+    def _get_pin(self,length=5):
+        """ Return a numeric PIN with length digits """
+        return str(random.sample(range(10**(length-1), 10**length), 1)[0])
 
 @method_decorator(login_required, name='dispatch')
 @method_decorator(check_otp, name='dispatch')
