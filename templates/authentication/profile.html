@@ -1,0 +1,48 @@
+{% extends 'theme/base.html' %} {% load transaction_status %} {% load static %} {% block content %}
+<section class="col-12" style="color: #000;">
+<form name="profile" class="contact-form row columns_padding_10" method="post" action="." novalidate>
+				{% csrf_token %}
+				<div class="col-sm-6 offset-sm-3">
+					<div class="form-group bottommargin_0">
+				        <div id="form-error" style="color: red;">{{ form.non_field_errors }}</div>
+				    </div>
+				</div>
+				<div class="col-sm-6 offset-sm-3">
+					<div class="form-group bottommargin_0">
+						<input type="text" aria-required="true" size="30" value="{{form.first_name.initial}}" name="first_name" id="id_first_name" class="form-control signup-input"
+						    placeholder="First Name">
+						<span>
+							<p> {{ form.first_name.errors.as_text }}</p>
+						</span>
+					</div>
+				</div>
+				<div class="col-sm-6 offset-sm-3">
+					<div class="form-group bottommargin_0">
+						<input type="text" aria-required="true" size="30" value="{{ form.last_name.initial}}" name="last_name" id="id_last_name" class="form-control signup-input"
+						    placeholder="Last Name">
+						<span>
+							<p> {{ form.last_name.errors.as_text }}</p>
+						</span>
+					</div>
+				</div>
+				
+				<div class="col-sm-6 offset-sm-3">
+					<div class="form-group bottommargin_0">
+						<input type="text" size="30" value="{{ form.email.initial}}" name="email" id="id_email" class="form-control signup-input" placeholder="Email" >
+						<span>
+							<p> {{ form.email.errors.as_text }}</p>
+						</span>
+					</div>
+				</div>
+				<div class="col-sm-12 text-center">
+						<button type="submit" name="contact_submit" class="btn  btn-secondary exchange-next">Update</button>
+
+						<button type="button" name="contact_submit" class="btn  btn-secondary exchange-next" onclick='window.location.href="/auth/password_change/" '>Change Password</button>
+			
+				</div>
+				
+			</form>
+			<br>
+			<br>
+</section>
+{% endblock content %}

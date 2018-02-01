@@ -6,7 +6,7 @@ from django.utils.decorators import method_decorator
 from django.utils.module_loading import import_string
 from django.views.decorators.debug import sensitive_post_parameters
 from django.views.generic.base import TemplateView, View
-from django.views.generic.edit import FormView
+from django.views.generic.edit import FormView, UpdateView
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.core.mail import send_mail
 from django.utils import six
@@ -18,7 +18,7 @@ from django.template import RequestContext
 
 from twilio.rest import Client
 
-from apps.authentication.forms import ResendActivationForm, RegistrationForm
+from apps.authentication.forms import ResendActivationForm, RegistrationForm, ProfileEditForm
 from apps.authentication.models import User, Wallet, AccessLog
 from apps.bitcoin_crypto.utils import create_bitwallet, create_litewallet, create_ethwallet, create_xmrwallet,\
                                       create_btgwallet, create_bchwallet
@@ -140,4 +140,32 @@ class ConfirmSignUpView(View):
             return render(request,self.template_name, {'error': True})
 
 
+
+class ProfileEdit(UpdateView):
+
+    template_name = 'authentication/profile.html'
+    form_class = ProfileEditForm
+    success_url = '/auth/profile/'
+    # queryset = User.objects.all()
+
+    def get_object(self, **kwargs):
+        return self.request.user
+
+    def get_context_data(self, **kwargs):
+        context = super(ProfileEdit, self).get_context_data(**kwargs)
+        context['form'].fields['first_name'].initial = "self.request.user.first_name"
+       
+        return context
+
+    def get_initial(self):
+        initial = super(ProfileEdit, self).get_initial()
+        initial['first_name'] = self.request.user.first_name
+        initial['last_name'] =  self.request.user.last_name
+        initial['email'] = self.request.user.email
+        return initial    
+    
+    def form_valid(self, form):
+        form.save()
+        return redirect(self.get_success_url())
+   
 

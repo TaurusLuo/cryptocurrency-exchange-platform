@@ -685,3 +685,14 @@ a:focus {
 	border: 1px solid #3b96b8;
 	border-radius: 100%;
 }
+
+.logo {    margin-top: 1.3em;}
+
+.dropdown-toggle { color: #fff !important;}
+
+.dropdown-menu.show {
+    display: block;
+    background: white;
+    top: -19px !important;
+    right: -18px;
+}
