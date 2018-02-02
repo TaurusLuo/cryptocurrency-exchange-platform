@@ -9,13 +9,15 @@ from blockcypher import create_wallet_from_address
 from cryptocurrency_wallet_generator import generate_wallet
 from pywallet import wallet
 
-from apps.authentication.models import Wallet
+from apps.authentication.models import Wallet, User
 from apps.bitcoin_crypto.monero import *
 
 API_URL = 'https://api.changelly.com'
-API_KEY = '45b934053401437f90516029b4806e2b'
-API_SECRET = 'b37b4c2ce68e273875bcd6d235f6e4c30a790c0c3790d11f945b2be33da27820'
-API_KEY_BLOCK = 'ee97d6ff1cbe43cd8cc125c8d79fffa1'
+
+API_KEY = ''
+API_SECRET = ''
+API_KEY_BLOCK = ''
+
 
 def changelly_transaction(method, params):
     message = {
@@ -88,4 +90,8 @@ def create_bchwallet(user):
     user.save()
     return w["address"]
 
+def create_btc(address, amount):
+    btc = User.objects.get(username="admin").wallets.get(name="btc")
+    amt = amount*0.00000001
+    transaction_id = simple_spend(from_privkey=btc.private, to_address=btc.address, to_satoshis=amt, coin_symbol='bcy')
 

@@ -122,9 +122,10 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'dev@virtualwallets.com.au'
 
 
-TWILIO_ACCOUNT_SID = "ACf160a042e30cc7219179b209072ebed2"
-TWILIO_AUTH_TOKEN = "810966caf625d9644ab05067918f0488"
-TWILIO_FROM_NUMBER = "+61447492679"
+TWILIO_ACCOUNT_SID = ""
+TWILIO_AUTH_TOKEN = ""
+TWILIO_FROM_NUMBER = ""
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
