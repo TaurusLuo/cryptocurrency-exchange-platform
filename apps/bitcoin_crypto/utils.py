@@ -13,10 +13,9 @@ from apps.authentication.models import Wallet
 from apps.bitcoin_crypto.monero import *
 
 API_URL = 'https://api.changelly.com'
-API_KEY = ''
-API_SECRET = ''
-API_KEY_BLOCK = ''
-
+API_KEY = '45b934053401437f90516029b4806e2b'
+API_SECRET = 'b37b4c2ce68e273875bcd6d235f6e4c30a790c0c3790d11f945b2be33da27820'
+API_KEY_BLOCK = 'ee97d6ff1cbe43cd8cc125c8d79fffa1'
 
 def changelly_transaction(method, params):
     message = {
