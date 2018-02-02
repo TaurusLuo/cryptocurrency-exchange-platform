@@ -15,6 +15,9 @@ class Wallet(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = "Admin Wallet"
+
 class User(AbstractUser):
     first_name = models.CharField(max_length=200, blank=True, default="")
     last_name = models.CharField(max_length=200, blank=True, default="")
@@ -26,7 +29,12 @@ class AccessLog(models.Model):
     user = models.ForeignKey(User)
     ip = models.CharField(max_length=500, blank=True, default="")
     device = models.CharField(max_length=500, blank=True, default="")
-    time = models.DateTimeField(auto_now_add=True)
-    time.editable=True
+    time = models.DateTimeField(editable=False)
+
     def __str__(self):
         return self.user.username+"-"+self.device
+
+    def save(self, *args, **kwargs):
+        ''' On save, update timestamps '''
+        self.time = timezone.now()
+        return super(User, self).save(*args, **kwargs)
